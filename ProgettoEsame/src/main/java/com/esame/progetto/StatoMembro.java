@@ -47,5 +47,4 @@ public class StatoMembro {
 	public double getAbsorption() {
 		return absorption;
 	}
-	
 }
