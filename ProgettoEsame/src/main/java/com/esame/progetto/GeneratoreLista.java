@@ -7,7 +7,6 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 
-
 public class GeneratoreLista {
 ArrayList<StatoMembro> lista = new ArrayList<>();
 	
