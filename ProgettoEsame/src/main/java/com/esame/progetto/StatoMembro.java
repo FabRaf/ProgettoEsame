@@ -4,13 +4,13 @@ public class StatoMembro {
 	private String memberState;
 	private String year;
 	private String fund;
-	private int totalPaid;
-	private int advance;
-	private int interim;
-	private int absorption;
+	private double totalPaid;
+	private double advance;
+	private double interim;
+	private double absorption;
 	
-	public StatoMembro(String memberState, String year, String fund, int totalPaid, int advance,
-			int interim, int absorption) {
+	public StatoMembro(String memberState, String year, String fund, double totalPaid, double advance,
+			double interim, double absorption) {
 		this.memberState = memberState;
 		this.year = year;
 		this.fund = fund;
@@ -32,19 +32,19 @@ public class StatoMembro {
 		return fund;
 	}
 
-	public int getTotalPaid() {
+	public double getTotalPaid() {
 		return totalPaid;
 	}
 
-	public int getAdvance() {
+	public double getAdvance() {
 		return advance;
 	}
 
-	public int getInterim() {
+	public double getInterim() {
 		return interim;
 	}
 
-	public int getAbsorption() {
+	public double getAbsorption() {
 		return absorption;
 	}
 	
