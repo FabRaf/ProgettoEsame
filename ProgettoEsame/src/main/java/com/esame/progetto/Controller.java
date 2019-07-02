@@ -17,7 +17,7 @@ public class Controller {
 	}
 	
 	@RequestMapping(path = "/metadata", method = RequestMethod.GET, headers = "Accept=application/json")
-		public JSONArray GetMetadata() throws FileNotFoundException, IOException, ClassNotFoundException {
+	public JSONArray GetMetadata() throws FileNotFoundException, IOException, ClassNotFoundException {
 		GeneratoreMetadati metadati = new GeneratoreMetadati();
 		return metadati.getMetadati();
 	}
