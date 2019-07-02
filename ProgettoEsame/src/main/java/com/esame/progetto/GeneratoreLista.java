@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class GeneratoreLista {
-ArrayList<StatoMembro> lista = new ArrayList<>();
+	ArrayList<StatoMembro> lista = new ArrayList<>();
 	
 	public GeneratoreLista() throws FileNotFoundException, IOException {
 		String line;
@@ -21,4 +21,9 @@ ArrayList<StatoMembro> lista = new ArrayList<>();
 		}
 		br.close();
 	}
+
+	public ArrayList<StatoMembro> getLista() {
+		return lista;
+	}
+	
 }
