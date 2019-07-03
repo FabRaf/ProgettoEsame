@@ -17,7 +17,7 @@ public class GeneratoreMetadati {
 		Field attributi[] = c.getDeclaredFields();
 		Class tipiAttributi[] = costruttori[0].getParameterTypes();
 		String line = br.readLine();
-		String valori[] = line.split(";", 7);
+		String valori[] = line.split(",", 7);
 		for(int i=0; i<attributi.length; i++) {
 			JSONObject obj = new JSONObject();
 			obj.put("alias", attributi[i].getName());

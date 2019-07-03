@@ -15,7 +15,7 @@ public class GeneratoreLista {
 		BufferedReader br = new BufferedReader(new FileReader("dataset.csv"));
 		br.readLine();
 		while((line = br.readLine()) != null) {
-			String[] str = line.split(";", 7);
+			String[] str = line.split(",", 7);
 			StatoMembro stato = new StatoMembro(str[0], str[1], str[2], Double.parseDouble(str[3]), Double.parseDouble(str[4]), Double.parseDouble(str[5]), Double.parseDouble(str[6]));
 			lista.add(stato);
 		}
