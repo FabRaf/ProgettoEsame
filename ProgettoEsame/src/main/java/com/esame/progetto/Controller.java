@@ -10,7 +10,7 @@ import java.util.ArrayList;
 @RestController
 public class Controller {
 	
-	@RequestMapping(path="/data", method = RequestMethod.GET, headers = "Accept=application/json; charset = utf-8")
+	@RequestMapping(path="/data", method = RequestMethod.GET, headers = "Accept=application/json; charset=utf-8")
 	public ArrayList<StatoMembro> GetData() throws FileNotFoundException, IOException {
 		GeneratoreLista lista = new GeneratoreLista();
 		return lista.getLista();
