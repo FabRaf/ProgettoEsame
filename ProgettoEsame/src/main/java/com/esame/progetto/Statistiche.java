@@ -9,23 +9,27 @@ import java.lang.reflect.Method;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 import java.util.ArrayList;
 
 
 public class Statistiche {
-	JSONObject elementiConOcc = new JSONObject();
+	JSONObject stat = new JSONObject();
 	
 	public Statistiche(String nomeCampo) throws FileNotFoundException, IOException, ClassNotFoundException {
 		super(); //perché?
 		boolean flag = false;
 		GeneratoreMetadati gm = new GeneratoreMetadati();
 		JSONArray metadati = gm.getMetadati();
+		String campo="", tipo="";
 				
 		for(int i=0; i<metadati.size(); i++) {
 			JSONObject jsonobj = (JSONObject) metadati.get(i);
-			String campo = (String) jsonobj.get("alias");
-			String tipo = (String) jsonobj.get("type");
-			if(tipo.equals("String") && campo.equals(nomeCampo)) {
+			campo = (String) jsonobj.get("alias");
+			tipo = (String) jsonobj.get("type");
+			if(campo.equals(nomeCampo)) {
 				flag = true;
 				break;
 			}
@@ -34,47 +38,22 @@ public class Statistiche {
 		if(flag == true) {
 			GeneratoreLista gl = new GeneratoreLista();
 			ArrayList<StatoMembro> lista = gl.getLista();
-			
-			ArrayList<String> elementiUnici = new ArrayList<String>();
-			//elementiUnici.add("");
-			
-			for(StatoMembro sm : lista) {
-				flag=false;
-				try {
-					Method m = sm.getClass().getMethod("get"+nomeCampo.substring(0, 1).toUpperCase()+nomeCampo.substring(1), null);
+			if (tipo.equals("String")) {
+				ArrayList<String> elementiUnici = new ArrayList<String>();
+				//elementiUnici.add("");
+				for (StatoMembro sm : lista) {
+					flag = false;
 					try {
-						String valoreCampo = (String) m.invoke(sm);
-						for(String str : elementiUnici) {
-							if(str.equals(valoreCampo)) flag = true;
-						}
-						if(flag == false) elementiUnici.add(valoreCampo);
-					} catch (IllegalAccessException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (IllegalArgumentException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (InvocationTargetException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				} catch (NoSuchMethodException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SecurityException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			
-			for(String str : elementiUnici) {
-				int cont = 0;
-				for(StatoMembro sm : lista) {
-					try {
-						Method m = sm.getClass().getMethod("get"+nomeCampo.substring(0, 1).toUpperCase()+nomeCampo.substring(1), null);
+						Method m = sm.getClass().getMethod(
+								"get" + nomeCampo.substring(0, 1).toUpperCase() + nomeCampo.substring(1), null);
 						try {
 							String valoreCampo = (String) m.invoke(sm);
-							if(str.equals(valoreCampo)) cont++;
+							for (String str : elementiUnici) {
+								if (str.equals(valoreCampo))
+									flag = true;
+							}
+							if (flag == false)
+								elementiUnici.add(valoreCampo);
 						} catch (IllegalAccessException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -93,15 +72,86 @@ public class Statistiche {
 						e.printStackTrace();
 					}
 				}
-				elementiConOcc.put(str, cont);
+				for (String str : elementiUnici) {
+					int cont = 0;
+					for (StatoMembro sm : lista) {
+						try {
+							Method m = sm.getClass().getMethod(
+									"get" + nomeCampo.substring(0, 1).toUpperCase() + nomeCampo.substring(1), null);
+							try {
+								String valoreCampo = (String) m.invoke(sm);
+								if (str.equals(valoreCampo))
+									cont++;
+							} catch (IllegalAccessException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} catch (IllegalArgumentException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} catch (InvocationTargetException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						} catch (NoSuchMethodException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (SecurityException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					stat.put(str, cont);
+				} 
+			}
+			else if(tipo.equals("double")) {
+			
+				//media
+				double somma = 0.0;
+				double max = 0.0, min = 999999999999.0;
+				for(StatoMembro sm : lista) {
+					try {
+						Method m = sm.getClass().getMethod(
+								"get" + nomeCampo.substring(0, 1).toUpperCase() + nomeCampo.substring(1), null);
+						try {
+							double valoreCampo = (double) m.invoke(sm);
+							somma += valoreCampo;
+							
+							if(valoreCampo > max) max = valoreCampo;
+							else if(valoreCampo < min) min = valoreCampo;
+							
+						} catch (IllegalAccessException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IllegalArgumentException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (InvocationTargetException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					} catch (NoSuchMethodException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (SecurityException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				double media = somma/lista.size();
+				NumberFormat nf = new DecimalFormat("0.00");
+				stat.put("avg", nf.format(media));
+				stat.put("min", nf.format(min));
+				stat.put("max", nf.format(max));
+
+				//minimo 
 			}
 		}
 		else {
-			elementiConOcc.put("result", "refused - parametro inesistente o di tipo numerico");
+			stat.put("result", "refused - parametro inesistente");
 		}
 	}
 
 	public JSONObject getElementiConOcc() {
-		return elementiConOcc;
+		return stat;
 	}
 }
