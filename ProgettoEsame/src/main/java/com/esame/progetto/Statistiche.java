@@ -105,7 +105,7 @@ public class Statistiche {
 			}
 			else if(tipo.equals("double")) {
 			
-				//media
+				//media, min, max
 				double somma = 0.0;
 				double max = 0.0, min = 999999999999.0;
 				for(StatoMembro sm : lista) {
@@ -138,20 +138,53 @@ public class Statistiche {
 					}
 				}
 				double media = somma/lista.size();
+				
+
+				//deviazione standard
+				double dev = 0.0;
+				for(StatoMembro sm : lista) {
+					try {
+						Method m = sm.getClass().getMethod(
+								"get" + nomeCampo.substring(0, 1).toUpperCase() + nomeCampo.substring(1), null);
+						try {
+							double valoreCampo = (double) m.invoke(sm);
+							double scarto = Math.pow(valoreCampo - media, 2);
+							dev += scarto;
+						} catch (IllegalAccessException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IllegalArgumentException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (InvocationTargetException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					} catch (NoSuchMethodException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (SecurityException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				dev = Math.sqrt(dev / lista.size());
+				
 				NumberFormat nf = new DecimalFormat("0.00");
 				stat.put("avg", nf.format(media));
 				stat.put("min", nf.format(min));
 				stat.put("max", nf.format(max));
-
-				//minimo 
+				stat.put("deviazione standard", nf.format(dev));
+				stat.put("sum", nf.format(somma));
+				stat.put("count", lista.size());
 			}
 		}
 		else {
-			stat.put("result", "refused - parametro inesistente");
+			stat.put("result", "refused - attributo inesistente");
 		}
 	}
 
-	public JSONObject getElementiConOcc() {
+	public JSONObject stat() {
 		return stat;
 	}
 }
