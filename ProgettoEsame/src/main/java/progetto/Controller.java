@@ -1,4 +1,4 @@
-package com.esame.progetto;
+package progetto;
 
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +12,12 @@ import org.json.simple.JSONObject;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+
+import com.esame.progetto.StatoMembro;
+import com.esame.progetto.GeneratoreLista;
+import com.esame.progetto.GeneratoreMetadati;
+import com.esame.progetto.Statistiche;
+
 
 @RestController
 public class Controller {
@@ -34,3 +40,4 @@ public class Controller {
 		return elementiUnici.getStatistiche();
 	}
 }
+
