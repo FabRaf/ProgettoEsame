@@ -1,4 +1,4 @@
-package com.esame.progetto;
+package dataset;
 
 public class StatoMembro {
 	private String memberState;
@@ -48,3 +48,4 @@ public class StatoMembro {
 		return absorption;
 	}
 }
+

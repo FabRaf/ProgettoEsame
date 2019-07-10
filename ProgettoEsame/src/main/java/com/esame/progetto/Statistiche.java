@@ -17,6 +17,9 @@ import java.util.Locale;
 
 import java.util.ArrayList;
 
+import dataset.GeneratoreLista;
+import dataset.StatoMembro;
+
 
 public class Statistiche {
 	JSONArray statistiche = new JSONArray();

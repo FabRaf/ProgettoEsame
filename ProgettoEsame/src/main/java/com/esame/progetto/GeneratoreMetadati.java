@@ -12,7 +12,7 @@ public class GeneratoreMetadati {
 	private JSONArray metadati = new JSONArray();
 	public GeneratoreMetadati() throws IOException, ClassNotFoundException {
 		BufferedReader br = new BufferedReader(new FileReader("dataset.csv"));
-		Class c = Class.forName("com.esame.progetto.StatoMembro");
+		Class c = Class.forName("dataset.StatoMembro");
 		Constructor costruttori[] = c.getConstructors();
 		Field attributi[] = c.getDeclaredFields();
 		Class tipiAttributi[] = costruttori[0].getParameterTypes();

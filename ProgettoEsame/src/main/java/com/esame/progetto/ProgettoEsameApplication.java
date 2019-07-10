@@ -1,4 +1,4 @@
-package progetto;
+package com.esame.progetto;
 
 import java.io.InputStream;
 import java.io.BufferedReader;
