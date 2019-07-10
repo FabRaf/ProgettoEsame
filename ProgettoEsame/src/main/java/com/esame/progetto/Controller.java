@@ -28,9 +28,9 @@ public class Controller {
 		return metadati.getMetadati();
 	}
 
-	@RequestMapping(path = "/data/stats", method = RequestMethod.GET, headers = "Accept=application/json; charset=utf-8")
-	public JSONObject elemento(@RequestParam(value="Field", required = false) String campo) throws FileNotFoundException, ClassNotFoundException, IOException {
+	@RequestMapping(path = "/stats", method = RequestMethod.GET, headers = "Accept=application/json; charset=utf-8")
+	public JSONArray elemento(@RequestParam(value="Field", required = false) String campo) throws FileNotFoundException, ClassNotFoundException, IOException {
 		Statistiche elementiUnici = new Statistiche(campo);
-		return elementiUnici.getElementiConOcc();
+		return elementiUnici.getStatistiche();
 	}
 }
