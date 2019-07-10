@@ -1,4 +1,4 @@
-package com.esame.progetto;
+package operazioni;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

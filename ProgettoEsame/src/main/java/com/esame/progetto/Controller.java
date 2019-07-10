@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 import dataset.StatoMembro;
 import dataset.GeneratoreLista;
+import operazioni.GeneratoreMetadati;
+import operazioni.Statistiche;
 
 
 @RestController

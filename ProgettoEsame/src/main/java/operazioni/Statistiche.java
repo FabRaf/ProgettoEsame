@@ -1,4 +1,4 @@
-package com.esame.progetto;
+package operazioni;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 import dataset.GeneratoreLista;
 import dataset.StatoMembro;
-
 
 public class Statistiche {
 	JSONArray statistiche = new JSONArray();
@@ -203,3 +202,4 @@ public class Statistiche {
 		return statistiche;
 	}
 }
+
