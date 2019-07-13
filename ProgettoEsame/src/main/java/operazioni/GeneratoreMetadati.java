@@ -10,6 +10,7 @@ import java.lang.reflect.Field;
 
 public class GeneratoreMetadati {
 	private JSONArray metadati = new JSONArray();
+	
 	public GeneratoreMetadati() throws IOException, ClassNotFoundException {
 		BufferedReader br = new BufferedReader(new FileReader("dataset.csv"));
 		Class c = Class.forName("dataset.StatoMembro");
@@ -18,6 +19,7 @@ public class GeneratoreMetadati {
 		Class tipiAttributi[] = costruttori[0].getParameterTypes();
 		String line = br.readLine();
 		String valori[] = line.split(",", 7);
+		
 		for(int i=0; i<attributi.length; i++) {
 			JSONObject obj = new JSONObject();
 			obj.put("alias", attributi[i].getName());
@@ -27,6 +29,8 @@ public class GeneratoreMetadati {
 			if(tipo.equals("java.lang.String")) obj.put("type", "String");
 			metadati.add(obj);
 		}
+		
+		br.close();
 	}
 	
 	public JSONArray getMetadati() {

@@ -1,4 +1,4 @@
-package com.esame.progetto;
+package operazioni;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

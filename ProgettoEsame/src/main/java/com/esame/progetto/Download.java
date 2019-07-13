@@ -15,8 +15,8 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
 public class Download {
-	File dataset = new File("dataset.csv");
-	String str = "http://data.europa.eu/euodp/data/api/3/action/package_show?id=funds-absorption-rate";
+	private File dataset = new File("dataset.csv");
+	private String str = "http://data.europa.eu/euodp/data/api/3/action/package_show?id=funds-absorption-rate";
 	
 	public Download() {
 		try {
@@ -49,6 +49,7 @@ public class Download {
 					}
 				}
 			}
+			
 		}
 		catch(IOException | ParseException e) {
 			e.printStackTrace();

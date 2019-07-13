@@ -7,10 +7,16 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 
-public class GeneratoreLista {
+import operazioni.Filter;
+import operazioni.FilterUtils;
+import dataset.StatoMembro;
+
+public class GeneratoreLista implements Filter {
+	private FilterUtils<StatoMembro> utils;
 	ArrayList<StatoMembro> lista = new ArrayList<>();
 	
 	public GeneratoreLista() throws FileNotFoundException, IOException {
+		super();
 		String line;
 		BufferedReader br = new BufferedReader(new FileReader("dataset.csv"));
 		br.readLine();
@@ -26,4 +32,8 @@ public class GeneratoreLista {
 		return lista;
 	}
 	
+	public ArrayList<StatoMembro> filterField(String fieldName, String operator, Object value) {
+		return (ArrayList<StatoMembro>) utils.select(this.getLista(), fieldName, operator, value);
+	}
 }
+	
