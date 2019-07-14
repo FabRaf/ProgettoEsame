@@ -12,25 +12,25 @@ public class GeneratoreMetadati {
 	private JSONArray metadati = new JSONArray();
 	
 	public GeneratoreMetadati() throws IOException, ClassNotFoundException {
-		BufferedReader br = new BufferedReader(new FileReader("dataset.csv"));
-		Class c = Class.forName("dataset.StatoMembro");
-		Constructor costruttori[] = c.getConstructors();
-		Field attributi[] = c.getDeclaredFields();
-		Class tipiAttributi[] = costruttori[0].getParameterTypes();
-		String line = br.readLine();
-		String valori[] = line.split(",", 7);
+		BufferedReader br = new BufferedReader(new FileReader("dataset.csv")); //crea un buffer di lettura dal file del dataset
+		String line = br.readLine(); //legge la prima riga del dataset
+		String valori[] = line.split(",", 7); //memorizza le intestazioni, cioè i nomi dei campi, in un array
+		Class c = Class.forName("dataset.StatoMembro"); //crea un oggetto Class relativo alla classe StatoMembro
+		Field attributi[] = c.getDeclaredFields(); //memorizza i campi della classe
+		Constructor costruttori[] = c.getConstructors(); //crea un oggetto Constructor relativo ai costruttori della classe StatoMembro
+		Class tipiAttributi[] = costruttori[0].getParameterTypes(); //memorizza i tipi dei parametri del costruttore
 		
 		for(int i=0; i<attributi.length; i++) {
 			JSONObject obj = new JSONObject();
-			obj.put("alias", attributi[i].getName());
-			obj.put("sourceField", valori[i]);
-			obj.put("type", tipiAttributi[i].getName());
-			String tipo = (String) obj.get("type");
-			if(tipo.equals("java.lang.String")) obj.put("type", "String");
-			metadati.add(obj);
+			obj.put("alias", attributi[i].getName()); //inserisce nell'oggetto il campo
+			obj.put("sourceField", valori[i]); //inserisce nell'oggetto l'intestazione			
+			String tipo = tipiAttributi[i].getName(); //memorizza il tipo del campo
+			if(tipo.equals("java.lang.String")) tipo = "String"; //modifica il tipo java.lang.String in String
+			obj.put("type", tipo); //inserisce nell'oggetto il tipo del campo			
+			metadati.add(obj); //aggiunge l'oggetto all'array 'metadati'
 		}
 		
-		br.close();
+		br.close(); //chiude il buffer di lettura
 	}
 	
 	public JSONArray getMetadati() {

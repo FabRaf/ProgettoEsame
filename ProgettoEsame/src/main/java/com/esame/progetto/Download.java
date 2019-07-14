@@ -15,37 +15,37 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
 public class Download {
-	private File dataset = new File("dataset.csv");
-	private String str = "http://data.europa.eu/euodp/data/api/3/action/package_show?id=funds-absorption-rate";
+	private File dataset = new File("dataset.csv"); //file che conterrà il dataset
+	private String str = "http://data.europa.eu/euodp/data/api/3/action/package_show?id=funds-absorption-rate"; //indirizzo del JSON
 	
 	public Download() {
 		try {
 			String data = "";
-			URL url = new URL(str);
-			URLConnection openConnection = url.openConnection();
+			URL url = new URL(str); //crea di un oggetto URL sulla base dell'indirizzo contenuto in 'str'
+			URLConnection openConnection = url.openConnection(); //esegue la connessione a url
 			openConnection.addRequestProperty("User-Agent", "Chrome");
-			InputStream in = openConnection.getInputStream();
+			InputStream in = openConnection.getInputStream(); //crea un flusso di input a partire dalla connessione
 			try {
-				BufferedReader br = new BufferedReader(new InputStreamReader(in));
+				BufferedReader br = new BufferedReader(new InputStreamReader(in));	//esegue la lettura bufferizzata del flusso
 				String line = "";
-				while((line = br.readLine()) != null) {
-					data+=line;
+				while((line = br.readLine()) != null) { //legge riga per riga finché non arriva la fine del file
+					data+=line; //memorizza le righe lette in una stringa
 				}
 			}
 			finally {
-				in.close();
+				in.close();	//chiude il flusso di input se si verificano eccezioni
 			}
-			JSONObject text = (JSONObject) JSONValue.parseWithException(data);
-			JSONObject result = (JSONObject) text.get("result");
-			JSONArray resources = (JSONArray) result.get("resources");
+			JSONObject text = (JSONObject) JSONValue.parseWithException(data); //genera un oggetto JSON sulla base della stringa 'data'
+			JSONObject result = (JSONObject) text.get("result"); //genera un oggetto JSON con il contenuto del campo 'result' di 'text'
+			JSONArray resources = (JSONArray) result.get("resources"); // genera un array JSON corrispondente al campo 'resources' di 'result'
 			
-			for(Object x : resources) {
-				if(x instanceof JSONObject) {
-					JSONObject o = (JSONObject) x;
-					URL url1 = new URL((String) o.get("url"));
-					String formato = (String) o.get("format");
-					if(formato.equals("http://publications.europa.eu/resource/authority/file-type/CSV")) {
-						FileUtils.copyURLToFile(url1, dataset);
+			for(Object x : resources) { // scorre l'array
+				if(x instanceof JSONObject) { //verifica che l'oggetto x sia di tipo JSONObject
+					JSONObject o = (JSONObject) x; //opera un cast di tipo di x a JSONObject
+					URL url1 = new URL((String) o.get("url")); //estrae il campo 'url' di 'o'
+					String formato = (String) o.get("format"); //estrae il campo 'format' di 'o'
+					if(formato.equals("http://publications.europa.eu/resource/authority/file-type/CSV")) { //verifica che il formato sia quello corretto
+						FileUtils.copyURLToFile(url1, dataset); // scarica il file in 'dataset'
 					}
 				}
 			}

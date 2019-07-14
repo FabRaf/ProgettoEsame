@@ -9,8 +9,7 @@ public class StatoMembro {
 	private double interim;
 	private double absorption;
 	
-	public StatoMembro(String memberState, String year, String fund, double totalPaid, double advance,
-			double interim, double absorption) {
+	public StatoMembro(String memberState, String year, String fund, double totalPaid, double advance, double interim, double absorption) {
 		this.memberState = memberState;
 		this.year = year;
 		this.fund = fund;
