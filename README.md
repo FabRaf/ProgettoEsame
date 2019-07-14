@@ -3,11 +3,11 @@ Il presente progetto verte sula gestione di dati riguardanti parametri economici
 Il progetto è realizzato in linguaggio Java e, tramite la modellazione di opportune classi, prevede il download di un dataset di riferimento, la memorizzazione dei dati in formato JSON e la possibilità di richiedere tali dati, oltre che i metadati ed eventuali statistiche sui dati stessi.
 Le classi di cui si compone il progetto sono suddivise in tre package come di seguito indicato.
 
- - com.esame.progetto: contiene le classi `controller`,`download`,`ProgettoEsameApp`
- - dataset;
- - operazioni.
+ - com.esame.progetto: contiene le classi `controller`, `download`, `ProgettoEsameApplication`;
+ - dataset: contiene le classi `GeneratoreLista`, `StatoMembro`;
+ - operazioni: `GeneratoreMetadati`, `enter code here`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjIwNjcwNTksLTEwNzY5NDcxMjAsLT
+eyJoaXN0b3J5IjpbLTE3NDUyMzU2ODQsLTEwNzY5NDcxMjAsLT
 k2NDM4MTkzMl19
 -->
