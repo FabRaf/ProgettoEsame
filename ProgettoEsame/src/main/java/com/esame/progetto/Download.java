@@ -48,8 +48,7 @@ public class Download {
 						FileUtils.copyURLToFile(url1, dataset); // scarica il file in 'dataset'
 					}
 				}
-			}
-			
+			}			
 		}
 		catch(IOException | ParseException e) {
 			e.printStackTrace();
