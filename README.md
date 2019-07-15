@@ -26,9 +26,8 @@ Pertanto un esempio di richiesta di statistiche per un attributo di tipo String 
 Un esempio di richiesta di statistiche per un attributo di tipo numerico, invece, è: localhost:8080/stats?field=absorption, che restituisce le statistiche numeriche prima descritte (media, min, ecc.) calcolate su tutti i valori corrispondenti al campo "absorption" relativi a ogni record del dataset.
 ### Gestione dei problemi in fase di richiesta
 L'applicazione prevede la gestione di eventuali problemi in fase di richiesta: se il parametro specificato ha una chiave che differisce da "field" viene inserito nell'oggetto JSON il messaggio `"errore": "specificare un parametro di tipo 'field'"`; se, invece, il campo inserito non corrisponde ad alcuno di quelli elencati precedentemente il messaggio che verrà inserito è `"errore": "campo inesistente"`.
-Si osservi che le statistiche su attributi di tipo numerico risultano essere, per tutti i campi eccetto "absorption", in notazione esponenziale, in quanto eccedono
-il valore 10^7, limite superiore oltre il quale Java ricorre a tale notazione.
+Si osservi che le statistiche su attributi di tipo numerico risultano essere, per tutti i campi eccetto "absorption", in notazione esponenziale, in quanto eccedono il valore 10^7, limite superiore oltre il quale Java ricorre a tale notazione.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg5MDE4MDUsOTQzNTQ0NjIwLC0yMTE5MT
-g2NzQyLC0xMDc2OTQ3MTIwLC05NjQzODE5MzJdfQ==
+eyJoaXN0b3J5IjpbOTkzNTE4ODM1LDk0MzU0NDYyMCwtMjExOT
+E4Njc0MiwtMTA3Njk0NzEyMCwtOTY0MzgxOTMyXX0=
 -->
