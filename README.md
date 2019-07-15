@@ -1,13 +1,13 @@
 # ProgettoEsame
-Il presente progetto riguarda la gestione di dati economici di diversi paesi europei negli anni dal 2007 al 2016.
-Esso è realizzato in linguaggio Java e prevede il download di un dataset di riferimento, la memorizzazione dei dati in formato
-JSON e la possibilità di richiedere, tramite server locale, i dati stessi, i metadati, le statistiche sui dati.
+Il presente progetto riguarda la gestione di dati economici di diversi paesi europei negli anni dal 2007 al 2016. Esso è realizzato in linguaggio Java e prevede il download di un dataset di riferimento, la memorizzazione dei dati in formato JSON e la possibilità di richiedere, tramite server locale, i dati stessi, i metadati, le statistiche sui dati.
 
 Le classi di cui si compone il progetto sono suddivise nei seguenti package secondo un criterio logico.
 
  - `com.esame.progetto`;
+ - `dataset`;
+ - `operazioni`;
 
-Funzionamento
+## Funzionamento
 All'avvio dell'applicazione viene eseguito il download del dataset di riferimento, rintracciato all'interno del JSON ottenibile
 all'indirizzo http://data.europa.eu/euodp/data/api/3/action/package_show?id=funds-absorption-rate.
 Tale dataset prevede i seguenti campi: Member State, Year, Fund, Total Paid, Advance, Interim, Absorption (%), dove i primi tre sono gestiti nell'applicazione come
@@ -38,6 +38,6 @@ il messaggio che verrà inserito è "errore": "campo inesistente".
 Si osservi che le statistiche su attributi di tipo numerico risultano essere, per tutti i campi eccetto "absorption", in notazione esponenziale, in quanto eccedono
 il valore 10^7, limite superiore oltre il quale Java ricorre a tale notazione.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMzOTQwMTIwLDk0MzU0NDYyMCwtMjExOT
-E4Njc0MiwtMTA3Njk0NzEyMCwtOTY0MzgxOTMyXX0=
+eyJoaXN0b3J5IjpbLTEzNjc2NDQ0MjAsOTQzNTQ0NjIwLC0yMT
+E5MTg2NzQyLC0xMDc2OTQ3MTIwLC05NjQzODE5MzJdfQ==
 -->
