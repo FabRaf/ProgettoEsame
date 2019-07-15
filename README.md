@@ -1,11 +1,18 @@
 # ProgettoEsame
 Il presente progetto riguarda la gestione di dati economici di diversi paesi europei negli anni dal 2007 al 2016. Esso è realizzato in linguaggio Java e prevede il download di un dataset di riferimento, la memorizzazione dei dati in formato JSON e la possibilità di richiedere, tramite server locale, i dati stessi, i metadati, le statistiche sui dati.
-
+## Struttura
 Le classi di cui si compone il progetto sono suddivise nei seguenti package secondo un criterio logico.
 
- - `com.esame.progetto`;
- - `dataset`;
- - `operazioni`;
+ - `com.esame.progetto`: 
+	 - `ProgettoEsameApplication`: classe principale, contentente il metodo `main()`, che si occupa di chiamare il download del dataset e di avviare il server;
+	 - `Download`: gestisce il download del dataset;
+	 - `Controller`: gestisce le richieste al server.
+ - `dataset`:
+ 	 - `StatoMembro`: definisce la struttura che rappresenta un record del dataset;
+	 - `GeneratoreLista`: genera la lista di oggetti rappresentante l'intero dataset.
+ - `operazioni`:
+ 	 - `GeneratoreMetadati`: genera la lista di oggetti contenenti i metadati;
+ 	 - `Statistiche`: genera statistiche sugli attributi del dataset.
 
 ## Funzionamento
 All'avvio dell'applicazione viene eseguito il download del dataset di riferimento, rintracciato all'interno del JSON ottenibile all'indirizzo http://data.europa.eu/euodp/data/api/3/action/package_show?id=funds-absorption-rate.
@@ -28,6 +35,6 @@ Un esempio di richiesta di statistiche per un attributo di tipo numerico, invece
 L'applicazione prevede la gestione di eventuali problemi in fase di richiesta: se il parametro specificato ha una chiave che differisce da "field" viene inserito nell'oggetto JSON il messaggio `"errore": "specificare un parametro di tipo 'field'"`; se, invece, il campo inserito non corrisponde ad alcuno di quelli elencati precedentemente il messaggio che verrà inserito è `"errore": "campo inesistente"`.
 Si osservi che le statistiche su attributi di tipo numerico risultano essere, per tutti i campi eccetto "absorption", in notazione esponenziale, in quanto eccedono il valore 10^7, limite superiore oltre il quale Java ricorre a tale notazione.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTkzNTE4ODM1LDk0MzU0NDYyMCwtMjExOT
-E4Njc0MiwtMTA3Njk0NzEyMCwtOTY0MzgxOTMyXX0=
+eyJoaXN0b3J5IjpbMTg3OTc5NzcyNSw5NDM1NDQ2MjAsLTIxMT
+kxODY3NDIsLTEwNzY5NDcxMjAsLTk2NDM4MTkzMl19
 -->
