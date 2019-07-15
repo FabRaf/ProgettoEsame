@@ -8,14 +8,11 @@ Le classi di cui si compone il progetto sono suddivise nei seguenti package seco
  - `operazioni`;
 
 ## Funzionamento
-All'avvio dell'applicazione viene eseguito il download del dataset di riferimento, rintracciato all'interno del JSON ottenibile
-all'indirizzo http://data.europa.eu/euodp/data/api/3/action/package_show?id=funds-absorption-rate.
-Tale dataset prevede i seguenti campi: Member State, Year, Fund, Total Paid, Advance, Interim, Absorption (%), dove i primi tre sono gestiti nell'applicazione come
-variabili di tipo String, mentre i rimanenti come variabili di tipo double.
-//Sulla base del dataset viene effettuato il parsing dei dati, il quale produce come risultato degli oggetti JSON che 
-rappresentano i record del dataset stesso.
-Successivamente viene avviato un server web locale sulla porta 8080 ricorrendo all'utilizzo del framework Spring.
-Tramite tale server sarà possibile effettuare le seguenti richieste GET (dove la parte iniziale della rotta, "localhost:8080", è sottintesa).
+All'avvio dell'applicazione viene eseguito il download del dataset di riferimento, rintracciato all'interno del JSON ottenibile all'indirizzo http://data.europa.eu/euodp/data/api/3/action/package_show?id=funds-absorption-rate.
+Tale dataset prevede i seguenti campi: Member State, Year, Fund, Total Paid, Advance, Interim, Absorption (%), dove i primi tre sono gestiti dall'applicazione come variabili di tipo String, mentre i rimanenti come variabili di tipo double.
+//Sulla base del dataset viene effettuato il parsing dei dati, il quale produce come risultato degli oggetti JSON che rappresentano i record del dataset stesso.
+Successivamente viene avviato un server web locale sulla porta 8080 ricorrendo all'utilizzo del framework Spring. Tramite tale server sarà possibile effettuare le seguenti richieste GET.
+
 -/data: restituisce i dati, ovvero gli oggetti JSON corrispondenti ai record del dataset;
 -/metadata: restituisce i metadati, ovvero l'elenco dei nomi degli attributi di ogni record e dei loro tipo e nome con cui
 sono memorizzati nell'applicazione;
@@ -38,6 +35,6 @@ il messaggio che verrà inserito è "errore": "campo inesistente".
 Si osservi che le statistiche su attributi di tipo numerico risultano essere, per tutti i campi eccetto "absorption", in notazione esponenziale, in quanto eccedono
 il valore 10^7, limite superiore oltre il quale Java ricorre a tale notazione.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjc2NDQ0MjAsOTQzNTQ0NjIwLC0yMT
-E5MTg2NzQyLC0xMDc2OTQ3MTIwLC05NjQzODE5MzJdfQ==
+eyJoaXN0b3J5IjpbNDY0ODM4MDM4LDk0MzU0NDYyMCwtMjExOT
+E4Njc0MiwtMTA3Njk0NzEyMCwtOTY0MzgxOTMyXX0=
 -->
