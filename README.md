@@ -19,6 +19,7 @@ All'avvio dell'applicazione viene eseguito il download del dataset di riferiment
 Tale dataset prevede i seguenti campi: Member State, Year, Fund, Total Paid, Advance, Interim, Absorption (%), dove i primi tre sono gestiti dall'applicazione come variabili di tipo String, mentre i rimanenti come variabili di tipo double.
 //Sulla base del dataset viene effettuato il parsing dei dati, il quale produce come risultato degli oggetti JSON che rappresentano i record del dataset stesso.
 Successivamente viene avviato un server web locale sulla porta 8080 ricorrendo all'utilizzo del framework Spring. Tramite tale server sarà possibile effettuare le seguenti richieste GET.
+
 `localhost:8080`:
  - `/data`: restituisce i dati, ovvero gli oggetti JSON corrispondenti ai record del dataset;
  - `/metadata`: restituisce i metadati, ovvero l'elenco dei nomi degli attributi di ogni record e dei loro tipo e nome con cui sono
@@ -47,6 +48,7 @@ Per avere una prova del comportamento dell'applicazione nel caso di richieste di
  - [localhost:8080/stats/field=Member_state](localhost:8080/stats/field=Member_state)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTY0NTE5NzgsOTQzNTQ0NjIwLC0yMT
-E5MTg2NzQyLC0xMDc2OTQ3MTIwLC05NjQzODE5MzJdfQ==
+eyJoaXN0b3J5IjpbLTE4MjA4MDM4NjgsLTEwNTY0NTE5NzgsOT
+QzNTQ0NjIwLC0yMTE5MTg2NzQyLC0xMDc2OTQ3MTIwLC05NjQz
+ODE5MzJdfQ==
 -->
