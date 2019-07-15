@@ -36,9 +36,10 @@ L'applicazione prevede la gestione di eventuali problemi in fase di richiesta de
 Si osservi che le statistiche su attributi di tipo numerico risultano essere, per tutti i campi eccetto "absorption", in notazione esponenziale, in quanto eccedono il valore 10^7, limite superiore oltre il quale Java ricorre a tale notazione.
 ## Esempi di test
 Sulla base di quanto detto è possibile effettuare dei test di esempio collegandosi ai seguenti indirizzi:
- - List item
+ - [localhost:8080/data](localhost:8080/data);
+ - [localhost8080/metadata](localhost/8080:metadata);
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyMzk4ODI3OSw5NDM1NDQ2MjAsLTIxMT
+eyJoaXN0b3J5IjpbLTIxNDk2MjI4MSw5NDM1NDQ2MjAsLTIxMT
 kxODY3NDIsLTEwNzY5NDcxMjAsLTk2NDM4MTkzMl19
 -->
