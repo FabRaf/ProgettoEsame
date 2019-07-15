@@ -20,7 +20,7 @@ Tale dataset prevede i seguenti campi: Member State, Year, Fund, Total Paid, Adv
 //Sulla base del dataset viene effettuato il parsing dei dati, il quale produce come risultato degli oggetti JSON che rappresentano i record del dataset stesso.
 Successivamente viene avviato un server web locale sulla porta 8080 ricorrendo all'utilizzo del framework Spring. Tramite tale server sarà possibile effettuare le seguenti richieste GET.
 
-`localhost:8080`:
+`localhost:8080`
  - `/data`: restituisce i dati, ovvero gli oggetti JSON corrispondenti ai record del dataset;
  - `/metadata`: restituisce i metadati, ovvero l'elenco dei nomi degli attributi di ogni record e dei loro tipo e nome con cui sono
    memorizzati nell'applicazione;
@@ -48,7 +48,7 @@ Per avere una prova del comportamento dell'applicazione nel caso di richieste di
  - [localhost:8080/stats/field=Member_state](localhost:8080/stats/field=Member_state)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjA4MDM4NjgsLTEwNTY0NTE5NzgsOT
-QzNTQ0NjIwLC0yMTE5MTg2NzQyLC0xMDc2OTQ3MTIwLC05NjQz
-ODE5MzJdfQ==
+eyJoaXN0b3J5IjpbLTMzNzYyMjc1OCwtMTgyMDgwMzg2OCwtMT
+A1NjQ1MTk3OCw5NDM1NDQ2MjAsLTIxMTkxODY3NDIsLTEwNzY5
+NDcxMjAsLTk2NDM4MTkzMl19
 -->
