@@ -12,12 +12,12 @@ All'avvio dell'applicazione viene eseguito il download del dataset di riferiment
 Tale dataset prevede i seguenti campi: Member State, Year, Fund, Total Paid, Advance, Interim, Absorption (%), dove i primi tre sono gestiti dall'applicazione come variabili di tipo String, mentre i rimanenti come variabili di tipo double.
 //Sulla base del dataset viene effettuato il parsing dei dati, il quale produce come risultato degli oggetti JSON che rappresentano i record del dataset stesso.
 Successivamente viene avviato un server web locale sulla porta 8080 ricorrendo all'utilizzo del framework Spring. Tramite tale server sarà possibile effettuare le seguenti richieste GET.
-
--/data: restituisce i dati, ovvero gli oggetti JSON corrispondenti ai record del dataset;
--/metadata: restituisce i metadati, ovvero l'elenco dei nomi degli attributi di ogni record e dei loro tipo e nome con cui
-sono memorizzati nell'applicazione;
--/stats: restituisce alcune statistiche sui dati.
-
+`localhost:8080`:
+ - `/data`: restituisce i dati, ovvero gli oggetti JSON corrispondenti ai record del dataset;
+ - `/metadata`: restituisce i metadati, ovvero l'elenco dei nomi degli attributi di ogni record e dei loro tipo e nome con cui sono
+   memorizzati nell'applicazione;
+ - `/stats`: restituisce alcune statistiche sui dati.
+## Heading
 Meritevole di approfondimento è la modalità con cui vengono implementate le statistiche. Esse si differenziano in base al tipo
 dell'attributo cui si fa riferimento: su attributi di tipo String sarà possibile ottenere per ogni campo il numero di occorrenze nell'intero dataset mentre su attributi di tipo
 numerico (nel presente caso sono tutti double) sarà possibile ottenere la media (avg), il minimo (min), il massimo (max), la deviazione standard (dev std),
@@ -35,6 +35,6 @@ il messaggio che verrà inserito è "errore": "campo inesistente".
 Si osservi che le statistiche su attributi di tipo numerico risultano essere, per tutti i campi eccetto "absorption", in notazione esponenziale, in quanto eccedono
 il valore 10^7, limite superiore oltre il quale Java ricorre a tale notazione.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDY0ODM4MDM4LDk0MzU0NDYyMCwtMjExOT
-E4Njc0MiwtMTA3Njk0NzEyMCwtOTY0MzgxOTMyXX0=
+eyJoaXN0b3J5IjpbMTE2MDM1NTkzOSw5NDM1NDQ2MjAsLTIxMT
+kxODY3NDIsLTEwNzY5NDcxMjAsLTk2NDM4MTkzMl19
 -->
