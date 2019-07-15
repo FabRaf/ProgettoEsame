@@ -165,10 +165,10 @@ public class Statistiche {
 					stat.put("count", lista.size());
 				}
 			} else {
-				stat.put("result", "campo inesistente");
+				stat.put("errore", "campo inesistente");
 			}
 		}
-		else stat.put("result", "specificare un parametro di tipo 'field'");
+		else stat.put("errore", "specificare un parametro di tipo 'field'");
 		statistiche.add(stat);
 	}
 	
