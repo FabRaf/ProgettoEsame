@@ -11,7 +11,7 @@ import java.util.ArrayList;
 //import operazioni.FilterUtils;
 import dataset.StatoMembro;
 
-public class GeneratoreLista /*implements Filter*/ {
+public class GeneratoreLista  /*implements Filter*/ {
 	//private FilterUtils<StatoMembro> utils;
 	ArrayList<StatoMembro> lista = new ArrayList<>(); //creazione di un ArrayList di oggetti di tipo StatoMembro
 	
