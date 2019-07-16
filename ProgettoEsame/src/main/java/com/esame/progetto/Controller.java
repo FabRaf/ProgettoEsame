@@ -17,23 +17,51 @@ import dataset.GeneratoreLista;
 import operazioni.GeneratoreMetadati;
 import operazioni.Statistiche;
 
+/**
+ * 
+ * @author Fabio Raffaeli
+ *
+ */
+
 @RestController
 public class Controller {	
+	/**
+	 * Restituisce la lista completa dei dati del dataset
+	 * 
+	 * @return lista dei dati
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	@RequestMapping(path = "/data", method = RequestMethod.GET, headers = "Accept=application/json; charset=utf-8") //definisce la struttura della richiesta dei dati
-	public ArrayList<StatoMembro> GetData(@RequestParam(value="filter", required=false) String filter/*, @RequestBody String body*/) throws FileNotFoundException, IOException {
+	public ArrayList<StatoMembro> GetData() throws FileNotFoundException, IOException {
 		GeneratoreLista lista = new GeneratoreLista();
-	//	if (filter==null) {
 			return lista.getLista();
-	//	}
-	//	return new ArrayList<StatoMembro>();
 	}
 	
+	/**
+	 * Restituisce la lista dei metadati
+	 * 
+	 * @return lista dei metadati
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	@RequestMapping(path = "/metadata", method = RequestMethod.GET, headers = "Accept=application/json") //definisce la struttura della richiesta dei metadati
 	public JSONArray GetMetadata() throws FileNotFoundException, IOException, ClassNotFoundException {
 		GeneratoreMetadati metadati = new GeneratoreMetadati();
 		return metadati.getMetadati();
 	}
-
+	
+	/**
+	 * Restituisce le statistiche sul campo specificato: elementi unici e numero di occorrenze se si tratta di un campo di tipo String,
+	 * media, massimo, minimo, deviazione standard, somma, conteggio se si tratta di un campo di tipo numerico
+	 * 
+	 * @param campo campo del quale si vogliono conoscere le statistiche
+	 * @return statistiche del campo specificato
+	 * @throws FileNotFoundException
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
 	@RequestMapping(path = "/stats", method = RequestMethod.GET, headers = "Accept=application/json; charset=utf-8") //definisce la struttura della richiesta delle statistiche
 	public JSONArray elemento(@RequestParam(value="field", required = false) String campo) throws FileNotFoundException, ClassNotFoundException, IOException {
 		Statistiche elementiUnici = new Statistiche(campo);

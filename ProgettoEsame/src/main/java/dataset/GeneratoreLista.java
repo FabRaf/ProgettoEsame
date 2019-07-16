@@ -7,16 +7,24 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 
-//import operazioni.Filter;
-//import operazioni.FilterUtils;
 import dataset.StatoMembro;
 
-public class GeneratoreLista /*implements Filter*/ {
-	//private FilterUtils<StatoMembro> utils;
+/**
+ * 
+ * @author Fabio Raffaeli
+ *
+ */
+
+public class GeneratoreLista  {
 	ArrayList<StatoMembro> lista = new ArrayList<>(); //creazione di un ArrayList di oggetti di tipo StatoMembro
 	
+	/**
+	 * Legge il contenuto del dataset e genera la lista dei dati sulla base di esso
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public GeneratoreLista() throws FileNotFoundException, IOException {
-		//super();
 		String line;
 		BufferedReader br = new BufferedReader(new FileReader("dataset.csv")); //esegue la lettura bufferizzata del dataset
 		br.readLine(); // legge a vuoto la prima riga poiché contiene le intestazioni delle colone
@@ -27,13 +35,13 @@ public class GeneratoreLista /*implements Filter*/ {
 		}
 		br.close(); //chiude il buffer di lettura
 	}
-
+	
+	/**
+	 * 
+	 * @return la lista dei dati sotto forma di ArrayList
+	 */
 	public ArrayList<StatoMembro> getLista() {
 		return lista;
 	}
-	
-	/*public ArrayList<StatoMembro> filterField(String fieldName, String operator, Object value) {
-		return (ArrayList<StatoMembro>) utils.select(this.getLista(), fieldName, operator, value);
-	}*/
 }
 	

@@ -8,9 +8,22 @@ import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 
+/**
+ * 
+ * @author Fabio Raffaeli
+ *
+ */
+
 public class GeneratoreMetadati {
 	private JSONArray metadati = new JSONArray();
 	
+	/**
+	 * Genera la lista dei metadati relativi al dataset considerato. Per metadati si intendono le informazioni riguardanti: il nome dei campi del dataset,
+	 * il nome e il tipo della variabile con cui essi vengono gestiti nell'applicazione
+	 * 
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public GeneratoreMetadati() throws IOException, ClassNotFoundException {
 		BufferedReader br = new BufferedReader(new FileReader("dataset.csv")); //crea un buffer di lettura dal file del dataset
 		String line = br.readLine(); //legge la prima riga del dataset
@@ -33,6 +46,10 @@ public class GeneratoreMetadati {
 		br.close(); //chiude il buffer di lettura
 	}
 	
+	 /**
+	  * 
+	  * @return la lista di metadati sotto forma di array JSON
+	  */
 	public JSONArray getMetadati() {
 		return metadati;
 	}	

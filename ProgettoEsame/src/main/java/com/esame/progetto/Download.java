@@ -14,10 +14,18 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
+/**
+ * 
+ * @author Fabio Raffaeli
+ *
+ */
+
 public class Download {
 	private File dataset = new File("dataset.csv"); //file che conterrà il dataset
 	private String str = "http://data.europa.eu/euodp/data/api/3/action/package_show?id=funds-absorption-rate"; //indirizzo del JSON
-	
+	/**
+	 * Effettua il download del dataset tramite l'URL ottenuto dopo opportuna decodifica del JSON reperibile all'indirizzo assegnato
+	 */
 	public Download() {
 		try {
 			String data = "";
@@ -31,7 +39,7 @@ public class Download {
 				while((line = br.readLine()) != null) { //legge riga per riga finché non arriva la fine del file
 					data+=line; //memorizza le righe lette in una stringa
 				}
-			}
+			}			
 			finally {
 				in.close();	//chiude il flusso di input se si verificano eccezioni
 			}
