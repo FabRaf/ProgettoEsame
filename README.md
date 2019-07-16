@@ -25,6 +25,8 @@ Successivamente viene avviato un server web locale sulla porta 8080 ricorrendo a
  - `/metadata`: restituisce i metadati, ovvero l'elenco dei nomi degli attributi di ogni record e dei loro tipo e nome con cui sono
    memorizzati nell'applicazione;
  - `/stats`: restituisce alcune statistiche sui dati.
+
+Si osservi che tutte le chiamata appena citate, se eseguite su attributi di tipo numerico, risultano essere, per tutti i campi eccetto "absorption", in notazione esponenziale, in quanto eccedono il valore 10^7, limite superiore oltre il quale Java ricorre a tale notazione.
 ## Implementazione delle statistiche
 Meritevole di approfondimento è la modalità con cui vengono implementate le statistiche. Esse si differenziano in base al tipo dell'attributo cui si fa riferimento: su attributi di tipo String sarà possibile ottenere per ogni campo il numero di occorrenze nell'intero dataset mentre su attributi di tipo
 numerico (nel presente caso tutti double) sarà possibile ottenere la media (avg), il minimo (min), il massimo (max), la deviazione standard (dev std),
@@ -32,7 +34,7 @@ la somma (sum) e il conteggio (count).
 L'attributo va specificato nella richiesta delle statistiche aggiungendo un parametro la cui chiave è "field" e il cui valore può essere "memberState", "year", "fund", "totalPaid", "advance", "interim", "absorption", corrispondenti rispettivamente ai campi nominati in precedenza.
 Pertanto un esempio di richiesta di statistiche per un attributo di tipo String è: `localhost:8080/stats?field=memberState`, che restituisce l'elenco di tutti i campi "Member State" del dataset, ognuno con relativo numero di occorrenze.
 Un esempio di richiesta di statistiche per un attributo di tipo numerico, invece, è: `localhost:8080/stats?field=advance`, che restituisce le statistiche numeriche prima descritte (media, min, ecc.) calcolate su tutti i valori corrispondenti al campo "advance" relativi a ogni record del dataset.
-Si osservi che le statistiche su attributi di tipo numerico risultano essere, per tutti i campi eccetto "absorption", in notazione esponenziale, in quanto eccedono il valore 10^7, limite superiore oltre il quale Java ricorre a tale notazione.
+
 ### Gestione dei problemi in fase di richiesta
 L'applicazione prevede la gestione di eventuali problemi in fase di richiesta delle statistiche: se il parametro specificato ha una chiave che differisce da "field" viene inserito nell'oggetto JSON il messaggio `"errore": "specificare un parametro di tipo 'field'"`; se, invece, il campo inserito non corrisponde ad alcuno di quelli previsti il messaggio che verrà inserito è `"errore": "campo inesistente"`.
 ## Esempi di test
@@ -48,7 +50,8 @@ Per avere una prova del comportamento dell'applicazione nel caso di richieste di
  - [localhost:8080/stats/field=Member_state](localhost:8080/stats/field=Member_state)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2OTk0NDQ1OCwtMzM3NjIyNzU4LC0xOD
-IwODAzODY4LC0xMDU2NDUxOTc4LDk0MzU0NDYyMCwtMjExOTE4
-Njc0MiwtMTA3Njk0NzEyMCwtOTY0MzgxOTMyXX0=
+eyJoaXN0b3J5IjpbLTUzMDYyMDg4MSwyMDY5OTQ0NDU4LC0zMz
+c2MjI3NTgsLTE4MjA4MDM4NjgsLTEwNTY0NTE5NzgsOTQzNTQ0
+NjIwLC0yMTE5MTg2NzQyLC0xMDc2OTQ3MTIwLC05NjQzODE5Mz
+JdfQ==
 -->
