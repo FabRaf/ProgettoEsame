@@ -15,7 +15,7 @@ Le classi di cui si compone il progetto sono suddivise nei seguenti package seco
  	 - `Statistiche`: genera statistiche sugli attributi del dataset.
 
 ## Funzionamento
-All'avvio dell'applicazione viene eseguito il download del dataset di riferimento, rintracciato all'interno del JSON ottenibile all'indirizzo http://data.europa.eu/euodp/data/api/3/action/package_show?id=funds-absorption-rate.
+All'avvio dell'applicazione viene eseguito il download del dataset di riferimento tramite l'URL rintracciato all'interno del JSON ottenibile all'indirizzo http://data.europa.eu/euodp/data/api/3/action/package_show?id=funds-absorption-rate.
 Tale dataset prevede i seguenti campi: Member State, Year, Fund, Total Paid, Advance, Interim, Absorption (%), dove i primi tre sono gestiti dall'applicazione come variabili di tipo String, mentre i rimanenti come variabili di tipo double.
 //Sulla base del dataset viene effettuato il parsing dei dati, il quale produce come risultato degli oggetti JSON che rappresentano i record del dataset stesso.
 Successivamente viene avviato un server web locale sulla porta 8080 ricorrendo all'utilizzo del framework Spring. Tramite tale server sarà possibile effettuare le seguenti richieste GET.
@@ -48,7 +48,7 @@ Per avere una prova del comportamento dell'applicazione nel caso di richieste di
  - [localhost:8080/stats/field=Member_state](localhost:8080/stats/field=Member_state)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzNzYyMjc1OCwtMTgyMDgwMzg2OCwtMT
-A1NjQ1MTk3OCw5NDM1NDQ2MjAsLTIxMTkxODY3NDIsLTEwNzY5
-NDcxMjAsLTk2NDM4MTkzMl19
+eyJoaXN0b3J5IjpbMjA2OTk0NDQ1OCwtMzM3NjIyNzU4LC0xOD
+IwODAzODY4LC0xMDU2NDUxOTc4LDk0MzU0NDYyMCwtMjExOTE4
+Njc0MiwtMTA3Njk0NzEyMCwtOTY0MzgxOTMyXX0=
 -->
