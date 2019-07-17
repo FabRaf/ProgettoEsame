@@ -4,7 +4,7 @@ Il presente progetto riguarda la gestione di dati economici di diversi paesi eur
 Le classi di cui si compone il progetto sono suddivise nei seguenti package secondo un criterio logico.
 
  - `com.esame.progetto`: 
-	 - `ProgettoEsameApplication`: classe principale, contentente il metodo `main()`, che si occupa di chiamare il download del dataset e di avviare il server;
+	 - `ProgettoEsameApplication`: classe principale, contentente il metodo `main()`, si occupa di chiamare il download del dataset e di avviare il server;
 	 - `Download`: gestisce il download del dataset;
 	 - `Controller`: gestisce le richieste al server.
  - `dataset`:
@@ -17,7 +17,6 @@ Le classi di cui si compone il progetto sono suddivise nei seguenti package seco
 ## Funzionamento
 All'avvio dell'applicazione viene eseguito il download del dataset di riferimento tramite l'URL rintracciato all'interno del JSON ottenibile all'indirizzo http://data.europa.eu/euodp/data/api/3/action/package_show?id=funds-absorption-rate.
 Tale dataset prevede i seguenti campi: Member State, Year, Fund, Total Paid, Advance, Interim, Absorption (%), dove i primi tre sono gestiti dall'applicazione come variabili di tipo String, mentre i rimanenti come variabili di tipo double.
-//Sulla base del dataset viene effettuato il parsing dei dati, il quale produce come risultato degli oggetti JSON che rappresentano i record del dataset stesso.
 Successivamente viene avviato un server web locale sulla porta 8080 ricorrendo all'utilizzo del framework Spring. Tramite tale server sarà possibile effettuare le seguenti richieste GET.
 
 `localhost:8080`
@@ -26,7 +25,7 @@ Successivamente viene avviato un server web locale sulla porta 8080 ricorrendo a
    memorizzati nell'applicazione;
  - `/stats`: restituisce alcune statistiche sui dati.
 
-Si osservi che tutte le chiamata appena citate, se eseguite su attributi di tipo numerico, risultano essere, per tutti i campi eccetto "absorption", in notazione esponenziale, in quanto eccedono il valore 10^7, limite superiore oltre il quale Java ricorre a tale notazione.
+Si osservi che tutte le chiamate appena citate, se eseguite su attributi di tipo numerico, producono risultati che sono, per tutti i campi eccetto "absorption", in notazione esponenziale, in quanto eccedono il valore 10^7, limite superiore oltre il quale Java ricorre a tale notazione.
 ## Implementazione delle statistiche
 Meritevole di approfondimento è la modalità con cui vengono implementate le statistiche. Esse si differenziano in base al tipo dell'attributo cui si fa riferimento: su attributi di tipo String sarà possibile ottenere per ogni campo il numero di occorrenze nell'intero dataset mentre su attributi di tipo
 numerico (nel presente caso tutti double) sarà possibile ottenere la media (avg), il minimo (min), il massimo (max), la deviazione standard (dev std),
@@ -39,19 +38,19 @@ Un esempio di richiesta di statistiche per un attributo di tipo numerico, invece
 L'applicazione prevede la gestione di eventuali problemi in fase di richiesta delle statistiche: se il parametro specificato ha una chiave che differisce da "field" viene inserito nell'oggetto JSON il messaggio `"errore": "specificare un parametro di tipo 'field'"`; se, invece, il campo inserito non corrisponde ad alcuno di quelli previsti il messaggio che verrà inserito è `"errore": "campo inesistente"`.
 ## Esempi di test
 Sulla base di quanto detto è possibile eseguire dei test di esempio effettuando le richieste:
- - [localhost:8080/data](localhost:8080/data);
- - [localhost:8080/metadata](localhost:8080/metadata);
- - [localhost:8080/stats?field=memberState](localhost:8080/stats?field=memberState); **da rivedere**
+ - [localhost:8080/data](localhost:8080/data)
+ - [localhost:8080/metadata](localhost:8080/metadata)
+ - [localhost:8080/stats?field=memberState](localhost:8080/stats?field=memberState)
  - [localhost:8080/stats?field=advance](localhost:8080/stats?field=advance).
 
 Per avere una prova del comportamento dell'applicazione nel caso di richieste di statistiche errate si possono effettuare le richieste:
 
- - [localhost:8080/stats/Fild=memberState](localhost:8080/stats/Fild=memberState);
+ - [localhost:8080/stats/Fild=memberState](localhost:8080/stats/Fild=memberState)
  - [localhost:8080/stats/field=Member_state](localhost:8080/stats/field=Member_state)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzMDYyMDg4MSwyMDY5OTQ0NDU4LC0zMz
-c2MjI3NTgsLTE4MjA4MDM4NjgsLTEwNTY0NTE5NzgsOTQzNTQ0
-NjIwLC0yMTE5MTg2NzQyLC0xMDc2OTQ3MTIwLC05NjQzODE5Mz
-JdfQ==
+eyJoaXN0b3J5IjpbMTEzNjM3MzU1MywtNTMwNjIwODgxLDIwNj
+k5NDQ0NTgsLTMzNzYyMjc1OCwtMTgyMDgwMzg2OCwtMTA1NjQ1
+MTk3OCw5NDM1NDQ2MjAsLTIxMTkxODY3NDIsLTEwNzY5NDcxMj
+AsLTk2NDM4MTkzMl19
 -->
