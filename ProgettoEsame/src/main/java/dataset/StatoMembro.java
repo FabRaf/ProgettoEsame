@@ -68,8 +68,8 @@ public class StatoMembro {
 	}
 	
 	/**
-	 * return il campo Advance
-	 * @return
+	 * 
+	 * @return il campo Advance
 	 */
 	public double getAdvance() {
 		return advance;

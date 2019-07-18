@@ -29,17 +29,17 @@ public class GeneratoreMetadati {
 		String line = br.readLine(); //legge la prima riga del dataset
 		String valori[] = line.split(",", 7); //memorizza le intestazioni, cioè i nomi dei campi, in un array
 		Class c = Class.forName("dataset.StatoMembro"); //crea un oggetto Class relativo alla classe StatoMembro
-		Field attributi[] = c.getDeclaredFields(); //memorizza i campi della classe
+		Field attributi[] = c.getDeclaredFields(); //memorizza le variabili membro della classe
 		Constructor costruttori[] = c.getConstructors(); //crea un oggetto Constructor relativo ai costruttori della classe StatoMembro
 		Class tipiAttributi[] = costruttori[0].getParameterTypes(); //memorizza i tipi dei parametri del costruttore
 		
 		for(int i=0; i<attributi.length; i++) {
 			JSONObject obj = new JSONObject();
-			obj.put("alias", attributi[i].getName()); //inserisce nell'oggetto il campo
+			obj.put("alias", attributi[i].getName()); //inserisce nell'oggetto il nome della variabile membro
 			obj.put("sourceField", valori[i]); //inserisce nell'oggetto l'intestazione			
-			String tipo = tipiAttributi[i].getName(); //memorizza il tipo del campo
+			String tipo = tipiAttributi[i].getName(); //memorizza il tipo della variabile membro
 			if(tipo.equals("java.lang.String")) tipo = "String"; //modifica il tipo java.lang.String in String
-			obj.put("type", tipo); //inserisce nell'oggetto il tipo del campo			
+			obj.put("type", tipo); //inserisce nell'oggetto il tipo della variabile membro			
 			metadati.add(obj); //aggiunge l'oggetto all'array 'metadati'
 		}
 		

@@ -34,8 +34,8 @@ public class Controller {
 	 */
 	@RequestMapping(path = "/data", method = RequestMethod.GET, headers = "Accept=application/json; charset=utf-8") //definisce la struttura della richiesta dei dati
 	public ArrayList<StatoMembro> GetData() throws FileNotFoundException, IOException {
-		GeneratoreLista lista = new GeneratoreLista();
-			return lista.getLista();
+		GeneratoreLista lista = new GeneratoreLista(); //crea un oggetto GeneratoreLista
+		return lista.getLista(); //restituisce la lista dei dati
 	}
 	
 	/**
@@ -48,8 +48,8 @@ public class Controller {
 	 */
 	@RequestMapping(path = "/metadata", method = RequestMethod.GET, headers = "Accept=application/json") //definisce la struttura della richiesta dei metadati
 	public JSONArray GetMetadata() throws FileNotFoundException, IOException, ClassNotFoundException {
-		GeneratoreMetadati metadati = new GeneratoreMetadati();
-		return metadati.getMetadati();
+		GeneratoreMetadati metadati = new GeneratoreMetadati(); //crea un oggetto GeneratoreMetadati
+		return metadati.getMetadati(); //restituisce i metadati
 	}
 	
 	/**
@@ -64,8 +64,8 @@ public class Controller {
 	 */
 	@RequestMapping(path = "/stats", method = RequestMethod.GET, headers = "Accept=application/json; charset=utf-8") //definisce la struttura della richiesta delle statistiche
 	public JSONArray elemento(@RequestParam(value="field", required = false) String campo) throws FileNotFoundException, ClassNotFoundException, IOException {
-		Statistiche elementiUnici = new Statistiche(campo);
-		return elementiUnici.getStatistiche();
+		Statistiche stat = new Statistiche(campo); //crea un oggetto Statistiche
+		return stat.getStatistiche(); //restituisce le statistiche
 	}
 }
 

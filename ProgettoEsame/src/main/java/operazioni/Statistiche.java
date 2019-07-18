@@ -30,13 +30,12 @@ public class Statistiche {
 	 * media, massimo, minimo, deviazione standard, somma, conteggio se si tratta di un campo di tipo numerico. Memorizza tali statistiche in un 
 	 * oggetto JSON, che viene poi inserito in un array JSON
 	 * 
-	 * @param nomeCampo
+	 * @param nomeCampo nome del campo del quale vengono richieste le statistiche
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 * @throws ClassNotFoundException
 	 */
 	public Statistiche(String nomeCampo) throws FileNotFoundException, IOException, ClassNotFoundException {
-		super(); //perché?
 		boolean flag = false;
 		GeneratoreMetadati gm = new GeneratoreMetadati();
 		JSONArray metadati = gm.getMetadati();
@@ -53,7 +52,7 @@ public class Statistiche {
 				}
 			}
 			if (flag == true) {
-				stat.put("field", nomeCampo); //inserisce nell'oggetto stat una coppia chiave-valore indicante il nome del campo
+				stat.put("field", nomeCampo); //inserisce nell'oggetto "stat" una coppia chiave-valore indicante il nome del campo
 				GeneratoreLista gl = new GeneratoreLista();
 				ArrayList<StatoMembro> lista = gl.getLista(); //ottiene la lista completa dei dati
 
@@ -65,7 +64,7 @@ public class Statistiche {
 							Method m = sm.getClass().getMethod(
 									"get" + nomeCampo.substring(0, 1).toUpperCase() + nomeCampo.substring(1), null); //recupera il metodo getter corrispondente al campo desiderato
 							try {
-								String valoreCampo = (String) m.invoke(sm); //invoca tale metodo sull'oggetto sm
+								String valoreCampo = (String) m.invoke(sm); //invoca tale metodo sull'oggetto "sm"
 								for (String str : elementiUnici) { //scorre la lista degli elementi unici
 									if (str.equals(valoreCampo)) //se nella lista è presente il campo
 										flag = true; //imposta a true il flag
@@ -120,7 +119,7 @@ public class Statistiche {
 							Method m = sm.getClass().getMethod(
 									"get" + nomeCampo.substring(0, 1).toUpperCase() + nomeCampo.substring(1), null); //recupera il metodo getter corrispondente al campo desiderato
 							try {
-								double valoreCampo = (double) m.invoke(sm); //invoca tale metodo sull'oggetto sm
+								double valoreCampo = (double) m.invoke(sm); //invoca tale metodo sull'oggetto "sm"
 								somma += valoreCampo; //incrementa la somma di una quantità pari al valore assunto dal campo
 
 								if (valoreCampo > max) //se il valore del campo è superiore al massimo
@@ -167,19 +166,19 @@ public class Statistiche {
 					}
 					dev = Math.sqrt(dev / lista.size()); //calcola la deviazione standard
 
-					stat.put("avg", media); //inserisce nell'oggetto stat una coppia chiave-valore indicante la media
-					stat.put("min", min); //inserisce nell'oggetto stat una coppia chiave-valore indicante il minimo
-					stat.put("max", max); //inserisce nell'oggetto stat una coppia chiave-valore indicante il massimo
-					stat.put("dev std", dev); //inserisce nell'oggetto stat una coppia chiave-valore indicante la deviazione standard
-					stat.put("sum", somma); //inserisce nell'oggetto stat una coppia chiave-valore indicante la somma
-					stat.put("count", lista.size()); //inserisce nell'oggetto stat una coppia chiave-valore indicante il conteggio
+					stat.put("avg", Math.round(media * 100) / 100.0); //inserisce nell'oggetto "stat" una coppia chiave-valore indicante la media (arrotondata alla seconda cifra decimale)
+					stat.put("min", min); //inserisce nell'oggetto "stat" una coppia chiave-valore indicante il minimo
+					stat.put("max", max); //inserisce nell'oggetto "stat" una coppia chiave-valore indicante il massimo
+					stat.put("dev std", Math.round(dev * 100) / 100.0); //inserisce nell'oggetto "stat" una coppia chiave-valore indicante la deviazione standard (arrotondata alla seconda cifra decimale)
+					stat.put("sum", Math.round(somma * 100) / 100.0); //inserisce nell'oggetto "stat" una coppia chiave-valore indicante la somma (arrotondata alla seconda cifra decimale)
+					stat.put("count", lista.size()); //inserisce nell'oggetto "stat" una coppia chiave-valore indicante il conteggio, cioè il numero di elementi della lista
 				}
 			} else {
-				stat.put("errore", "campo inesistente"); //restituisce un messaggio di errore nel caso in cui il campo specificato sia errato
+				stat.put("errore", "campo inesistente"); //inserisce nell'oggetto un messaggio di errore nel caso in cui il campo specificato sia errato
 			}
 		}
-		else stat.put("errore", "specificare un parametro di tipo 'field'"); //restituisce un messaggio di errore nel caso in cui il parametro sia errato
-		statistiche.add(stat);
+		else stat.put("errore", "specificare un parametro di tipo 'field'"); //inserisce nell'oggetto un messaggio di errore nel caso in cui il parametro sia errato
+		statistiche.add(stat); //inserisce l'oggetto "stat" nell'array JSON "statistiche"
 	}
 	
 	/**
