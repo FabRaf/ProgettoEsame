@@ -25,9 +25,9 @@ Successivamente viene avviato un server web locale sulla porta 8080 ricorrendo a
    memorizzati nell'applicazione;
  - `/stats`: restituisce alcune statistiche sui dati.
 
-Si osservi che tutte le chiamate appena citate, se eseguite su attributi di tipo numerico, producono risultati che sono, per tutti i campi eccetto "absorption", in notazione esponenziale, in quanto eccedono il valore 10^7, limite superiore oltre il quale Java ricorre a tale notazione.
+Si osservi che tutte le chiamate appena citate, se eseguite su attributi di tipo numerico, producono risultati che sono, per tutti i campi eccetto "absorption", in notazione esponenziale, in quanto eccedono il valore 10^7, limite superiore oltre il quale Java ricorre a tale notazione. Utilizzando il browser Mozilla Firefox è possibile visualizzare i risultati nella scrittura standard.
 ## Implementazione delle statistiche
-Meritevole di approfondimento è la modalità con cui vengono implementate le statistiche. Esse si differenziano in base al tipo dell'attributo cui si fa riferimento: su attributi di tipo String sarà possibile ottenere per ogni campo il numero di occorrenze nell'intero dataset mentre su attributi di tipo
+Meritevole di approfondimento è la modalità con cui vengono implementate le statistiche. Esse si differenziano in base al tipo dell'attributo cui si fa riferimento: su attributi di tipo String sarà possibile ottenere per ogni campo il numero di occorrenze nell'intero dataset, mentre su attributi di tipo
 numerico (nel presente caso tutti double) sarà possibile ottenere la media (avg), il minimo (min), il massimo (max), la deviazione standard (dev std),
 la somma (sum) e il conteggio (count).
 L'attributo va specificato nella richiesta delle statistiche aggiungendo un parametro la cui chiave è "field" e il cui valore può essere "memberState", "year", "fund", "totalPaid", "advance", "interim", "absorption", corrispondenti rispettivamente ai campi nominati in precedenza.
@@ -38,22 +38,29 @@ Un esempio di richiesta di statistiche per un attributo di tipo numerico, invece
 ### Gestione dei problemi in fase di richiesta
 L'applicazione prevede la gestione di eventuali problemi in fase di richiesta delle statistiche: se il parametro specificato ha una chiave che differisce da "field" viene inserito nell'oggetto JSON il messaggio `"errore": "specificare un parametro di tipo 'field'"`; se, invece, il campo inserito non corrisponde ad alcuno di quelli previsti il messaggio che verrà inserito è `"errore": "campo inesistente"`.
 ## Esempi di test
-Sulla base di quanto detto è possibile eseguire dei test di esempio effettuando le richieste:
- - [localhost:8080/data](localhost:8080/data)
- - [localhost:8080/metadata](localhost:8080/metadata)
- - [localhost:8080/stats?field=memberState](localhost:8080/stats?field=memberState)
- - [localhost:8080/stats?field=advance](localhost:8080/stats?field=advance).
+Sulla base di quanto detto è possibile eseguire dei test di funzionamento effettuando le richieste:
+ - [http:/localhost:8080/data](http:/localhost:8080/data)
+ - [http:/localhost:8080/metadata](http:/localhost:8080/metadata)
+ - [http:/localhost:8080/stats?field=memberState](http:/localhost:8080/stats?field=memberState)
+ - [localhost:8080/stats?field=year](http:/localhost:8080/stats?field=year)
+ - [http:/localhost:8080/stats?field=fund](http:/localhost:8080/stats?field=fund)
+ - [http:/localhost:8080/stats?field=totalPaid](http:/localhost:8080/stats?field=totalPaid)
+ - [http:/localhost:8080/stats?field=advance](http:/localhost:8080/stats?field=advance)
+ - [http:/localhost:8080/stats?field=interim](http:/localhost:8080/stats?field=interim)
+ - [http://localhost:8080/stats?field=absorption](http://localhost:8080/stats?field=absorption)
 
-Per avere una prova del comportamento dell'applicazione nel caso di richieste di statistiche errate si possono effettuare le richieste:
+Per avere una prova del comportamento dell'applicazione nel caso di richieste di statistiche errate si possono utilizzare le rotte (volutamente sbagliate):
 
- - [localhost:8080/stats/Fild=memberState](localhost:8080/stats/Fild=memberState)
- - [localhost:8080/stats/field=Member_state](localhost:8080/stats/field=Member_state)
+ - [http://localhost:8080/stats?Fild=memberState](http://localhost:8080/stats?Fild=memberState)
+ - [http://localhost:8080/stats?field=Member_state](http://localhost:8080/stats?field=Member_state)
 ## Informazioni aggiuntive
 Nell'omonima cartella sono riportati i diagrammi UML del progetto. In particolare si tratta del diagramma dei casi d'uso, del diagramma delle classi e del diagramma delle sequenze.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODc4MTk0NDk4LC0xMjUxNzczNjc4LDE3MD
-UxNTU5ODIsMzA0MjUwMDE2LDExMzYzNzM1NTMsLTUzMDYyMDg4
-MSwyMDY5OTQ0NDU4LC0zMzc2MjI3NTgsLTE4MjA4MDM4NjgsLT
-EwNTY0NTE5NzgsOTQzNTQ0NjIwLC0yMTE5MTg2NzQyLC0xMDc2
-OTQ3MTIwLC05NjQzODE5MzJdfQ==
+eyJoaXN0b3J5IjpbLTIwNTAzNzAzMzMsMTUyODc2MTU3MSw0OT
+k3MTg1NzUsNzc2MTgyMzU0LDEwODY2MTUxNDgsMTIwODA3Njk2
+MSw4NzgxOTQ0OTgsLTEyNTE3NzM2NzgsMTcwNTE1NTk4MiwzMD
+QyNTAwMTYsMTEzNjM3MzU1MywtNTMwNjIwODgxLDIwNjk5NDQ0
+NTgsLTMzNzYyMjc1OCwtMTgyMDgwMzg2OCwtMTA1NjQ1MTk3OC
+w5NDM1NDQ2MjAsLTIxMTkxODY3NDIsLTEwNzY5NDcxMjAsLTk2
+NDM4MTkzMl19
 -->
