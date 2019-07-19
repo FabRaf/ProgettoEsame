@@ -47,7 +47,7 @@ Sulla base di quanto detto è possibile eseguire dei test di funzionamento effet
  - [localhost:8080/stats?field=totalPaid](localhost:8080/stats?field=totalPaid)
  - [localhost:8080/stats?field=advance](localhost:8080/stats?field=advance)
  - [localhost:8080/stats?field=interim](localhost:8080/stats?field=interim)
- - [httlocalhost:8080/stats?field=absorption](http://localhost:8080/stats?field=absorption)
+ - [http://localhost:8080/stats?field=absorption](http://localhost:8080/stats?field=absorption)
 
 Per avere una prova del comportamento dell'applicazione nel caso di richieste di statistiche errate si possono utilizzare le rotte (volutamente sbagliate):
 
@@ -56,10 +56,10 @@ Per avere una prova del comportamento dell'applicazione nel caso di richieste di
 ## Informazioni aggiuntive
 Nell'omonima cartella sono riportati i diagrammi UML del progetto. In particolare si tratta del diagramma dei casi d'uso, del diagramma delle classi e del diagramma delle sequenze.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTY5MDYyNDAyLDc3NjE4MjM1NCwxMDg2Nj
-E1MTQ4LDEyMDgwNzY5NjEsODc4MTk0NDk4LC0xMjUxNzczNjc4
-LDE3MDUxNTU5ODIsMzA0MjUwMDE2LDExMzYzNzM1NTMsLTUzMD
-YyMDg4MSwyMDY5OTQ0NDU4LC0zMzc2MjI3NTgsLTE4MjA4MDM4
-NjgsLTEwNTY0NTE5NzgsOTQzNTQ0NjIwLC0yMTE5MTg2NzQyLC
-0xMDc2OTQ3MTIwLC05NjQzODE5MzJdfQ==
+eyJoaXN0b3J5IjpbLTIwMzYyOTI0MzYsNzc2MTgyMzU0LDEwOD
+Y2MTUxNDgsMTIwODA3Njk2MSw4NzgxOTQ0OTgsLTEyNTE3NzM2
+NzgsMTcwNTE1NTk4MiwzMDQyNTAwMTYsMTEzNjM3MzU1MywtNT
+MwNjIwODgxLDIwNjk5NDQ0NTgsLTMzNzYyMjc1OCwtMTgyMDgw
+Mzg2OCwtMTA1NjQ1MTk3OCw5NDM1NDQ2MjAsLTIxMTkxODY3ND
+IsLTEwNzY5NDcxMjAsLTk2NDM4MTkzMl19
 -->
