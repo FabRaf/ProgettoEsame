@@ -48,10 +48,12 @@ Per avere una prova del comportamento dell'applicazione nel caso di richieste di
 
  - [localhost:8080/stats/Fild=memberState](localhost:8080/stats/Fild=memberState)
  - [localhost:8080/stats/field=Member_state](localhost:8080/stats/field=Member_state)
-
+## Informazioni aggiuntive
+Nell'omonima cartella sono riportati i diagrammi UML del progetto, in parti
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwNTE1NTk4MiwzMDQyNTAwMTYsMTEzNj
-M3MzU1MywtNTMwNjIwODgxLDIwNjk5NDQ0NTgsLTMzNzYyMjc1
-OCwtMTgyMDgwMzg2OCwtMTA1NjQ1MTk3OCw5NDM1NDQ2MjAsLT
-IxMTkxODY3NDIsLTEwNzY5NDcxMjAsLTk2NDM4MTkzMl19
+eyJoaXN0b3J5IjpbMTk2MTA1MDMxNywxNzA1MTU1OTgyLDMwND
+I1MDAxNiwxMTM2MzczNTUzLC01MzA2MjA4ODEsMjA2OTk0NDQ1
+OCwtMzM3NjIyNzU4LC0xODIwODAzODY4LC0xMDU2NDUxOTc4LD
+k0MzU0NDYyMCwtMjExOTE4Njc0MiwtMTA3Njk0NzEyMCwtOTY0
+MzgxOTMyXX0=
 -->
