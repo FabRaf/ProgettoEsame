@@ -39,14 +39,14 @@ Un esempio di richiesta di statistiche per un attributo di tipo numerico, invece
 L'applicazione prevede la gestione di eventuali problemi in fase di richiesta delle statistiche: se il parametro specificato ha una chiave che differisce da "field" viene inserito nell'oggetto JSON il messaggio `"errore": "specificare un parametro di tipo 'field'"`; se, invece, il campo inserito non corrisponde ad alcuno di quelli previsti il messaggio che verrà inserito è `"errore": "campo inesistente"`.
 ## Esempi di test
 Sulla base di quanto detto è possibile eseguire dei test di funzionamento effettuando le richieste:
- - [localhost:8080/data](localhost:8080/data)
- - [localhost:8080/metadata](localhost:8080/metadata)
- - [localhost:8080/stats?field=memberState](localhost:8080/stats?field=memberState)
- - [localhost:8080/stats?field=year](localhost:8080/stats?field=year)
- - [localhost:8080/stats?field=fund](localhost:8080/stats?field=fund)
- - [localhost:8080/stats?field=totalPaid](localhost:8080/stats?field=totalPaid)
- - [localhost:8080/stats?field=advance](localhost:8080/stats?field=advance)
- - [localhost:8080/stats?field=interim](localhost:8080/stats?field=interim)
+ - [http:/localhost:8080/data](http:/localhost:8080/data)
+ - [http:/localhost:8080/metadata](http:/localhost:8080/metadata)
+ - [http:/localhost:8080/stats?field=memberState](http:/localhost:8080/stats?field=memberState)
+ - [localhost:8080/stats?field=year](http:/localhost:8080/stats?field=year)
+ - [http:/localhost:8080/stats?field=fund](http:/localhost:8080/stats?field=fund)
+ - [http:/localhost:8080/stats?field=totalPaid](http:/localhost:8080/stats?field=totalPaid)
+ - [http:/localhost:8080/stats?field=advance](http:/localhost:8080/stats?field=advance)
+ - [http:/localhost:8080/stats?field=interim](http:/localhost:8080/stats?field=interim)
  - [http://localhost:8080/stats?field=absorption](http://localhost:8080/stats?field=absorption)
 
 Per avere una prova del comportamento dell'applicazione nel caso di richieste di statistiche errate si possono utilizzare le rotte (volutamente sbagliate):
@@ -56,10 +56,10 @@ Per avere una prova del comportamento dell'applicazione nel caso di richieste di
 ## Informazioni aggiuntive
 Nell'omonima cartella sono riportati i diagrammi UML del progetto. In particolare si tratta del diagramma dei casi d'uso, del diagramma delle classi e del diagramma delle sequenze.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMzYyOTI0MzYsNzc2MTgyMzU0LDEwOD
-Y2MTUxNDgsMTIwODA3Njk2MSw4NzgxOTQ0OTgsLTEyNTE3NzM2
-NzgsMTcwNTE1NTk4MiwzMDQyNTAwMTYsMTEzNjM3MzU1MywtNT
-MwNjIwODgxLDIwNjk5NDQ0NTgsLTMzNzYyMjc1OCwtMTgyMDgw
-Mzg2OCwtMTA1NjQ1MTk3OCw5NDM1NDQ2MjAsLTIxMTkxODY3ND
-IsLTEwNzY5NDcxMjAsLTk2NDM4MTkzMl19
+eyJoaXN0b3J5IjpbNDk5NzE4NTc1LDc3NjE4MjM1NCwxMDg2Nj
+E1MTQ4LDEyMDgwNzY5NjEsODc4MTk0NDk4LC0xMjUxNzczNjc4
+LDE3MDUxNTU5ODIsMzA0MjUwMDE2LDExMzYzNzM1NTMsLTUzMD
+YyMDg4MSwyMDY5OTQ0NDU4LC0zMzc2MjI3NTgsLTE4MjA4MDM4
+NjgsLTEwNTY0NTE5NzgsOTQzNTQ0NjIwLC0yMTE5MTg2NzQyLC
+0xMDc2OTQ3MTIwLC05NjQzODE5MzJdfQ==
 -->
