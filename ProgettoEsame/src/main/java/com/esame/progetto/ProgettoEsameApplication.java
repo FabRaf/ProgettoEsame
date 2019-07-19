@@ -22,4 +22,3 @@ public class ProgettoEsameApplication {
 		SpringApplication.run(ProgettoEsameApplication.class, args); //avvia il server locale
 	}
 }
- 

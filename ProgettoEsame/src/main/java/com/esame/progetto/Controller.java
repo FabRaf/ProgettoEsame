@@ -68,5 +68,3 @@ public class Controller {
 		return stat.getStatistiche(); //restituisce le statistiche
 	}
 }
-
-

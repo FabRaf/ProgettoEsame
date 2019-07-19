@@ -91,4 +91,3 @@ public class StatoMembro {
 		return absorption;
 	}
 }
-
