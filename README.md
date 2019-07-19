@@ -49,11 +49,11 @@ Per avere una prova del comportamento dell'applicazione nel caso di richieste di
  - [localhost:8080/stats/Fild=memberState](localhost:8080/stats/Fild=memberState)
  - [localhost:8080/stats/field=Member_state](localhost:8080/stats/field=Member_state)
 ## Informazioni aggiuntive
-Nell'omonima cartella sono riportati i diagrammi UML del progetto, in particolare si tratta del diagramma dei casi d'uso, il diagramma delle classi e il diagramma delle sequenze.
+Nell'omonima cartella sono riportati i diagrammi UML del progetto. In particolare si tratta del diagramma dei casi d'uso, il diagramma delle classi e il diagramma delle sequenze.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjkxODA5NzE2LDE3MDUxNTU5ODIsMzA0Mj
-UwMDE2LDExMzYzNzM1NTMsLTUzMDYyMDg4MSwyMDY5OTQ0NDU4
-LC0zMzc2MjI3NTgsLTE4MjA4MDM4NjgsLTEwNTY0NTE5NzgsOT
-QzNTQ0NjIwLC0yMTE5MTg2NzQyLC0xMDc2OTQ3MTIwLC05NjQz
-ODE5MzJdfQ==
+eyJoaXN0b3J5IjpbLTEyNTE3NzM2NzgsMTcwNTE1NTk4MiwzMD
+QyNTAwMTYsMTEzNjM3MzU1MywtNTMwNjIwODgxLDIwNjk5NDQ0
+NTgsLTMzNzYyMjc1OCwtMTgyMDgwMzg2OCwtMTA1NjQ1MTk3OC
+w5NDM1NDQ2MjAsLTIxMTkxODY3NDIsLTEwNzY5NDcxMjAsLTk2
+NDM4MTkzMl19
 -->
