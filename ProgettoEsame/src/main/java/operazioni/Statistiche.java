@@ -21,9 +21,8 @@ import dataset.StatoMembro;
  */
 
 public class Statistiche {
-	JSONArray statistiche = new JSONArray();
-	JSONObject stat = new JSONObject();
-	//@SuppressWarnings({"unchecked"})
+	private JSONArray statistiche = new JSONArray();
+	private JSONObject stat = new JSONObject();
 	
 	/**
 	 * Genera le statistiche relative al campo che riceve come parametro: elementi unici e numero di occorrenze se si tratta di un campo di tipo String,

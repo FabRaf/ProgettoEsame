@@ -53,7 +53,7 @@ public class Controller {
 	}
 	
 	/**
-	 * Restituisce le statistiche sul campo specificato: elementi unici e numero di occorrenze se si tratta di un campo di tipo String,
+	 * Restituisce le statistiche sul campo specificato: elementi unici e numero di occorrenze se si tratta di un campo di tipo String;
 	 * media, massimo, minimo, deviazione standard, somma, conteggio se si tratta di un campo di tipo numerico
 	 * 
 	 * @param campo campo del quale si vogliono conoscere le statistiche
@@ -63,7 +63,7 @@ public class Controller {
 	 * @throws IOException
 	 */
 	@RequestMapping(path = "/stats", method = RequestMethod.GET, headers = "Accept=application/json; charset=utf-8") //definisce la struttura della richiesta delle statistiche
-	public JSONArray elemento(@RequestParam(value="field", required = false) String campo) throws FileNotFoundException, ClassNotFoundException, IOException {
+	public JSONArray GetStats(@RequestParam(value="field", required = false) String campo) throws FileNotFoundException, ClassNotFoundException, IOException {
 		Statistiche stat = new Statistiche(campo); //crea un oggetto Statistiche
 		return stat.getStatistiche(); //restituisce le statistiche
 	}

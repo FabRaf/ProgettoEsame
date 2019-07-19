@@ -16,7 +16,7 @@ import dataset.StatoMembro;
  */
 
 public class GeneratoreLista  {
-	ArrayList<StatoMembro> lista = new ArrayList<>(); //creazione di un ArrayList di oggetti di tipo StatoMembro
+	private ArrayList<StatoMembro> lista = new ArrayList<>(); //creazione di un ArrayList di oggetti di tipo StatoMembro
 	
 	/**
 	 * Legge il contenuto del dataset e genera la lista dei dati sulla base di esso

@@ -49,7 +49,7 @@ public class Download {
 			JSONArray resources = (JSONArray) result.get("resources"); // genera un array JSON corrispondente al campo "resources" di "result"
 			
 			for(Object x : resources) { // scorre l'array
-				if(x instanceof JSONObject) { //verifica che l'oggetto x sia di tipo JSONObject
+				if(x instanceof JSONObject) { //verifica che l'oggetto x sia convertibile nel tipo JSONObject
 					JSONObject o = (JSONObject) x; //opera un cast di tipo di x a JSONObject
 					URL url1 = new URL((String) o.get("url")); //estrae il campo "url" di "o"
 					String formato = (String) o.get("format"); //estrae il campo "format" di "o"
