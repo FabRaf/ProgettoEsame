@@ -21,7 +21,7 @@ Successivamente viene avviato un server web locale sulla porta 8080 ricorrendo a
 
 `localhost:8080`
  - `/data`: restituisce i dati, ovvero gli oggetti JSON corrispondenti ai record del dataset;
- - `/metadata`: restituisce i metadati, ovvero l'elenco dei nomi degli attributi di ogni record e dei loro tipo e nome con cui sono
+ - `/metadata`: restituisce i metadati, ovvero l'elenco dei nomi degli attributi di ogni record e del tipo e del nome delle variabili con cui sono
    memorizzati nell'applicazione;
  - `/stats`: restituisce alcune statistiche sui dati.
 
@@ -49,8 +49,8 @@ Per avere una prova del comportamento dell'applicazione nel caso di richieste di
  - [localhost:8080/stats/field=Member_state](localhost:8080/stats/field=Member_state)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzNjM3MzU1MywtNTMwNjIwODgxLDIwNj
-k5NDQ0NTgsLTMzNzYyMjc1OCwtMTgyMDgwMzg2OCwtMTA1NjQ1
-MTk3OCw5NDM1NDQ2MjAsLTIxMTkxODY3NDIsLTEwNzY5NDcxMj
-AsLTk2NDM4MTkzMl19
+eyJoaXN0b3J5IjpbMzA0MjUwMDE2LDExMzYzNzM1NTMsLTUzMD
+YyMDg4MSwyMDY5OTQ0NDU4LC0zMzc2MjI3NTgsLTE4MjA4MDM4
+NjgsLTEwNTY0NTE5NzgsOTQzNTQ0NjIwLC0yMTE5MTg2NzQyLC
+0xMDc2OTQ3MTIwLC05NjQzODE5MzJdfQ==
 -->
