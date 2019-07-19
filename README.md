@@ -27,7 +27,7 @@ Successivamente viene avviato un server web locale sulla porta 8080 ricorrendo a
 
 Si osservi che tutte le chiamate appena citate, se eseguite su attributi di tipo numerico, producono risultati che sono, per tutti i campi eccetto "absorption", in notazione esponenziale, in quanto eccedono il valore 10^7, limite superiore oltre il quale Java ricorre a tale notazione.
 ## Implementazione delle statistiche
-Meritevole di approfondimento è la modalità con cui vengono implementate le statistiche. Esse si differenziano in base al tipo dell'attributo cui si fa riferimento: su attributi di tipo String sarà possibile ottenere per ogni campo il numero di occorrenze nell'intero dataset mentre su attributi di tipo
+Meritevole di approfondimento è la modalità con cui vengono implementate le statistiche. Esse si differenziano in base al tipo dell'attributo cui si fa riferimento: su attributi di tipo String sarà possibile ottenere per ogni campo il numero di occorrenze nell'intero dataset, mentre su attributi di tipo
 numerico (nel presente caso tutti double) sarà possibile ottenere la media (avg), il minimo (min), il massimo (max), la deviazione standard (dev std),
 la somma (sum) e il conteggio (count).
 L'attributo va specificato nella richiesta delle statistiche aggiungendo un parametro la cui chiave è "field" e il cui valore può essere "memberState", "year", "fund", "totalPaid", "advance", "interim", "absorption", corrispondenti rispettivamente ai campi nominati in precedenza.
@@ -51,9 +51,9 @@ Per avere una prova del comportamento dell'applicazione nel caso di richieste di
 ## Informazioni aggiuntive
 Nell'omonima cartella sono riportati i diagrammi UML del progetto. In particolare si tratta del diagramma dei casi d'uso, del diagramma delle classi e del diagramma delle sequenze.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODc4MTk0NDk4LC0xMjUxNzczNjc4LDE3MD
-UxNTU5ODIsMzA0MjUwMDE2LDExMzYzNzM1NTMsLTUzMDYyMDg4
-MSwyMDY5OTQ0NDU4LC0zMzc2MjI3NTgsLTE4MjA4MDM4NjgsLT
-EwNTY0NTE5NzgsOTQzNTQ0NjIwLC0yMTE5MTg2NzQyLC0xMDc2
-OTQ3MTIwLC05NjQzODE5MzJdfQ==
+eyJoaXN0b3J5IjpbLTExMDk4MjIyNDIsODc4MTk0NDk4LC0xMj
+UxNzczNjc4LDE3MDUxNTU5ODIsMzA0MjUwMDE2LDExMzYzNzM1
+NTMsLTUzMDYyMDg4MSwyMDY5OTQ0NDU4LC0zMzc2MjI3NTgsLT
+E4MjA4MDM4NjgsLTEwNTY0NTE5NzgsOTQzNTQ0NjIwLC0yMTE5
+MTg2NzQyLC0xMDc2OTQ3MTIwLC05NjQzODE5MzJdfQ==
 -->
