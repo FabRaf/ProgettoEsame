@@ -31,7 +31,6 @@ Meritevole di approfondimento è la modalità con cui vengono implementate le st
 numerico (nel presente caso tutti double) sarà possibile ottenere la media (avg), il minimo (min), il massimo (max), la deviazione standard (dev std),
 la somma (sum) e il conteggio (count).
 L'attributo va specificato nella richiesta delle statistiche aggiungendo un parametro la cui chiave è "field" e il cui valore può essere "memberState", "year", "fund", "totalPaid", "advance", "interim", "absorption", corrispondenti rispettivamente ai campi nominati in precedenza.
-
 Pertanto un esempio di richiesta di statistiche per un attributo di tipo String è: `localhost:8080/stats?field=memberState`, che restituisce l'elenco di tutti i campi "Member State" del dataset, ognuno con relativo numero di occorrenze.
 Un esempio di richiesta di statistiche per un attributo di tipo numerico, invece, è: `localhost:8080/stats?field=advance`, che restituisce le statistiche numeriche prima descritte (media, min, ecc.) calcolate su tutti i valori corrispondenti al campo "advance" relativi a ogni record del dataset.
 
@@ -50,8 +49,8 @@ Per avere una prova del comportamento dell'applicazione nel caso di richieste di
  - [localhost:8080/stats/field=Member_state](localhost:8080/stats/field=Member_state)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwNTE1NTk4MiwzMDQyNTAwMTYsMTEzNj
-M3MzU1MywtNTMwNjIwODgxLDIwNjk5NDQ0NTgsLTMzNzYyMjc1
-OCwtMTgyMDgwMzg2OCwtMTA1NjQ1MTk3OCw5NDM1NDQ2MjAsLT
-IxMTkxODY3NDIsLTEwNzY5NDcxMjAsLTk2NDM4MTkzMl19
+eyJoaXN0b3J5IjpbMzA0MjUwMDE2LDMwNDI1MDAxNiwxMTM2Mz
+czNTUzLC01MzA2MjA4ODEsMjA2OTk0NDQ1OCwtMzM3NjIyNzU4
+LC0xODIwODAzODY4LC0xMDU2NDUxOTc4LDk0MzU0NDYyMCwtMj
+ExOTE4Njc0MiwtMTA3Njk0NzEyMCwtOTY0MzgxOTMyXX0=
 -->
