@@ -42,7 +42,9 @@ Sulla base di quanto detto è possibile eseguire dei test di funzionamento effet
  - [localhost:8080/data](localhost:8080/data)
  - [localhost:8080/metadata](localhost:8080/metadata)
  - [localhost:8080/stats?field=memberState](localhost:8080/stats?field=memberState)
- - [localhost:8080/stats?field=advance](localhost:8080/stats?field=advance).
+ - [localhost:8080/stats?field=year](localhost:8080/stats?field=year)
+ - 
+ - [localhost:8080/stats?field=advance](localhost:8080/stats?field=advance)
 
 Per avere una prova del comportamento dell'applicazione nel caso di richieste di statistiche errate si possono effettuare le richieste:
 
@@ -51,9 +53,10 @@ Per avere una prova del comportamento dell'applicazione nel caso di richieste di
 ## Informazioni aggiuntive
 Nell'omonima cartella sono riportati i diagrammi UML del progetto. In particolare si tratta del diagramma dei casi d'uso, del diagramma delle classi e del diagramma delle sequenze.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwODA3Njk2MSw4NzgxOTQ0OTgsLTEyNT
-E3NzM2NzgsMTcwNTE1NTk4MiwzMDQyNTAwMTYsMTEzNjM3MzU1
-MywtNTMwNjIwODgxLDIwNjk5NDQ0NTgsLTMzNzYyMjc1OCwtMT
-gyMDgwMzg2OCwtMTA1NjQ1MTk3OCw5NDM1NDQ2MjAsLTIxMTkx
-ODY3NDIsLTEwNzY5NDcxMjAsLTk2NDM4MTkzMl19
+eyJoaXN0b3J5IjpbLTE3MDI4MzYyNDAsMTIwODA3Njk2MSw4Nz
+gxOTQ0OTgsLTEyNTE3NzM2NzgsMTcwNTE1NTk4MiwzMDQyNTAw
+MTYsMTEzNjM3MzU1MywtNTMwNjIwODgxLDIwNjk5NDQ0NTgsLT
+MzNzYyMjc1OCwtMTgyMDgwMzg2OCwtMTA1NjQ1MTk3OCw5NDM1
+NDQ2MjAsLTIxMTkxODY3NDIsLTEwNzY5NDcxMjAsLTk2NDM4MT
+kzMl19
 -->
