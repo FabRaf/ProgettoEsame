@@ -51,15 +51,16 @@ Sulla base di quanto detto è possibile eseguire dei test di funzionamento effet
 
 Per avere una prova del comportamento dell'applicazione nel caso di richieste di statistiche errate si possono utilizzare le rotte (volutamente sbagliate):
 
- - [http://localhost:8080/stats/Fild=memberState](http://localhost:8080/stats/Fild=memberState)
- - [http://localhost:8080/stats/field=Member_state](http://localhost:8080/stats/field=Member_state)
+ - [http://localhost:8080/stats?Fild=memberState](http://localhost:8080/stats?Fild=memberState)
+ - [http://localhost:8080/stats?field=Member_state](http://localhost:8080/stats?field=Member_state)
 ## Informazioni aggiuntive
 Nell'omonima cartella sono riportati i diagrammi UML del progetto. In particolare si tratta del diagramma dei casi d'uso, del diagramma delle classi e del diagramma delle sequenze.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyODc2MTU3MSw0OTk3MTg1NzUsNzc2MT
-gyMzU0LDEwODY2MTUxNDgsMTIwODA3Njk2MSw4NzgxOTQ0OTgs
-LTEyNTE3NzM2NzgsMTcwNTE1NTk4MiwzMDQyNTAwMTYsMTEzNj
-M3MzU1MywtNTMwNjIwODgxLDIwNjk5NDQ0NTgsLTMzNzYyMjc1
-OCwtMTgyMDgwMzg2OCwtMTA1NjQ1MTk3OCw5NDM1NDQ2MjAsLT
-IxMTkxODY3NDIsLTEwNzY5NDcxMjAsLTk2NDM4MTkzMl19
+eyJoaXN0b3J5IjpbLTIwNTAzNzAzMzMsMTUyODc2MTU3MSw0OT
+k3MTg1NzUsNzc2MTgyMzU0LDEwODY2MTUxNDgsMTIwODA3Njk2
+MSw4NzgxOTQ0OTgsLTEyNTE3NzM2NzgsMTcwNTE1NTk4MiwzMD
+QyNTAwMTYsMTEzNjM3MzU1MywtNTMwNjIwODgxLDIwNjk5NDQ0
+NTgsLTMzNzYyMjc1OCwtMTgyMDgwMzg2OCwtMTA1NjQ1MTk3OC
+w5NDM1NDQ2MjAsLTIxMTkxODY3NDIsLTEwNzY5NDcxMjAsLTk2
+NDM4MTkzMl19
 -->
