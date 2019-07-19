@@ -1,4 +1,4 @@
-# ProgettoEsame
+# Progetto d'esame - appello del 22/07/2019
 Il presente progetto riguarda la gestione di dati economici di diversi paesi europei negli anni dal 2007 al 2016. Esso è realizzato in linguaggio Java e prevede il download di un dataset di riferimento, la memorizzazione dei dati in formato JSON e la possibilità di richiedere, tramite server locale, i dati stessi, i metadati, le statistiche sui dati.
 ## Struttura
 Le classi di cui si compone il progetto sono suddivise nei seguenti package secondo un criterio logico.
@@ -48,10 +48,12 @@ Per avere una prova del comportamento dell'applicazione nel caso di richieste di
 
  - [localhost:8080/stats/Fild=memberState](localhost:8080/stats/Fild=memberState)
  - [localhost:8080/stats/field=Member_state](localhost:8080/stats/field=Member_state)
-
+## Informazioni aggiuntive
+Nell'omonima cartella sono riportati i diagrammi UML del progetto. In particolare si tratta del diagramma dei casi d'uso, il diagramma delle classi e il diagramma delle sequenze.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwNTE1NTk4MiwzMDQyNTAwMTYsMTEzNj
-M3MzU1MywtNTMwNjIwODgxLDIwNjk5NDQ0NTgsLTMzNzYyMjc1
-OCwtMTgyMDgwMzg2OCwtMTA1NjQ1MTk3OCw5NDM1NDQ2MjAsLT
-IxMTkxODY3NDIsLTEwNzY5NDcxMjAsLTk2NDM4MTkzMl19
+eyJoaXN0b3J5IjpbLTEyNTE3NzM2NzgsMTcwNTE1NTk4MiwzMD
+QyNTAwMTYsMTEzNjM3MzU1MywtNTMwNjIwODgxLDIwNjk5NDQ0
+NTgsLTMzNzYyMjc1OCwtMTgyMDgwMzg2OCwtMTA1NjQ1MTk3OC
+w5NDM1NDQ2MjAsLTIxMTkxODY3NDIsLTEwNzY5NDcxMjAsLTk2
+NDM4MTkzMl19
 -->
