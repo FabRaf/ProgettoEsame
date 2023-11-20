@@ -1,4 +1,4 @@
-# Progetto d'esame - appello del 22/07/2019
+# Progetto d'esame Programmazione ad Oggetti (UNIVPM) - appello del 22/07/2019
 Il presente progetto riguarda la gestione di dati economici di diversi paesi europei negli anni dal 2007 al 2016. Esso è realizzato in linguaggio Java e prevede il download di un dataset di riferimento, la memorizzazione dei dati in formato JSON e la possibilità di richiedere, tramite server locale, i dati stessi, i metadati, le statistiche sui dati.
 ## Struttura
 Le classi di cui si compone il progetto sono suddivise nei seguenti package secondo un criterio logico.
